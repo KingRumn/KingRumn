@@ -229,6 +229,345 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/linux-hexo-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KingRumn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KingRumn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/25/linux-hexo-guide/" itemprop="url">Ubuntu hexo安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-25T14:29:09Z">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="背景">背景</h1>
+<p>各种各样的博客五花八门，但是利用<code>github</code>构建个人看起来很有逼格，在其他地方积累的并不多，因此花了2天的时间研究了一下如何依靠github构建个人博客。 - 主流的个人博客工具包括<code>hexo</code>，<code>jekyll</code>，<code>wordpress</code>等，具体的优劣建议参考：<code>https://www.jianshu.com/p/c4f145fdd637</code> - 个人最终选择了<code>git + github + hexo</code>的方案，主要是命令少，易于学习。</p>
+<h1 id="安装git">安装git</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 安装</span><br><span class="line">$ sudo apt-get install git</span><br><span class="line"># 配置账户</span><br><span class="line">$git config --global user.name &quot;your username&quot; </span><br><span class="line">$git config --global user.email &quot;your_email@youremail.com&quot;</span><br><span class="line">$ssh-keygen -t rsa -C &quot;youremail@email.com&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="github-pages">github pages</h1>
+<ol style="list-style-type: decimal">
+<li><p>注册账户 如果你还没有<code>github</code>的账号，去注册一个吧（<code>https://github.com/join?source=header-home</code>），一个有逼格的程序员，这是必须的</p></li>
+<li>创建github pages</li>
+</ol>
+<ul>
+<li>登录（<code>https://github.com</code>）</li>
+<li>找到<code>Start a project</code>或者<code>New repository</code>创建个项目 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yourname/yourname.github.io	</span><br><span class="line"># 这个地址必须严格按这个写，错了是无法访问的</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>Notice</strong>: <code>yourname</code>必须是你注册时的用户名，如果你忘记了，去点下你的头像，下拉出来的<code>Signed in as</code>后面就是你的名字</p>
+<ol start="3" style="list-style-type: decimal">
+<li>书写第一个主页</li>
+</ol>
+<ul>
+<li><p>pull代码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd yourworkdir 	#yourworkdir是工作目录</span><br><span class="line">$ git clone https://github.com/yourname/yourname.github.io</span><br><span class="line">$ cd yourname.github.io</span><br><span class="line">$ touch index.htm	# 创建默认页面</span><br></pre></td></tr></table></figure></p></li>
+<li><p>创建页面 通过vim或gedit编辑<code>index.htm</code>并输入以下内容 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;My Blog&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;Hello，world！&lt;/p&gt;</span><br><span class="line">&lt;p&gt;This is my first blog. &lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>上传代码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m &quot;创建我的第一个页面&quot;</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<p>后续一般需要输入用户名（yourname）和密码（登录密码）</p>
+<ol start="4" style="list-style-type: decimal">
+<li>访问页面 创建成功后，通过<code>https://yourname.github.io</code>即可访问刚才书写的页面</li>
+</ol>
+<p>这样你的个人博客已经可以访问了，如果你已经可以自己构建个网站结构，那就直接开搞吧，不过作为看这个教程的人，一般都需要去寻找一个现成的搭建博客的方案，比如<code>hexo</code>,<code>jekyll</code>等，下面先介绍<code>hexo</code>的使用过程。</p>
+<h1 id="安装hexo">安装hexo</h1>
+<ol style="list-style-type: decimal">
+<li>安装nodejs 不建议使用apt-get方式安装，容易失败； 建议使用nvm工具进行安装（nvm是一个可以让你在同一台机器上安装和切换不同版本node的工具） 使用如下命令进行安装： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot; &amp;&amp; (</span><br><span class="line">  git clone https://github.com/creationix/nvm.git &quot;$NVM_DIR&quot;</span><br><span class="line">  cd &quot;$NVM_DIR&quot;</span><br><span class="line">  git checkout `git describe --abbrev=0 --tags --match &quot;v[0-9]*&quot; origin`</span><br><span class="line">) &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>使nvm开机启动，将如下内容添加到<code>~/.bashrc</code>中： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</span><br><span class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></p>
+<p>重启 <code>terminal</code>或者重新<code>source</code>一下 <code>~/.bashrc</code>； 执行以下命令： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$nvm ls-remote //列出所有安装包的版本信息</span><br><span class="line">$nvm install stable //安装最稳定版本</span><br><span class="line">$nvm use node //使用当前版本</span><br><span class="line">$nvm run node --version //也可以使用该命令 使用当前版本</span><br><span class="line">$nvm alias default node //设置默认版本</span><br></pre></td></tr></table></figure></p>
+<p>如果需要更新则手动更新 nvm: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line"> cd &quot;$NVM_DIR&quot;</span><br><span class="line"> git fetch origin</span><br><span class="line"> git checkout `git describe --abbrev=0 --tags --match &quot;v[0-9]*&quot; origin`</span><br><span class="line">) &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></p>
+<ol start="2" style="list-style-type: decimal">
+<li>安装hexo <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$npm install  hexo-cli -g</span><br><span class="line">$npm install hexo-server -g</span><br><span class="line">$npm install hexo-deployer-git -g</span><br><span class="line">$npm install hexo-util -g</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>接下来建立博客目录，并初始化： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd yourworkdir</span><br><span class="line">$ mkdir yourblogdir</span><br><span class="line">$ cd yourblogdir</span><br><span class="line">$ hexo init //初始化 下载必要的建站文件</span><br><span class="line">$ npm install //安装依赖项</span><br></pre></td></tr></table></figure></p>
+<p>接下来就可以开始博客的撰写了。 # 配置hexo 1. 选择主题 2. 修改markdown渲染引擎</p>
+<h1 id="撰写博客">撰写博客</h1>
+<p>Todo</p>
+<h1 id="发布博客">发布博客</h1>
+<p>Todo</p>
+<h1 id="参考">参考</h1>
+<p><a href="http://stevenshi.me/2017/05/23/ubuntu-hexo/" target="_blank" rel="noopener">ubuntu 下 hexo 安装与配置</a> <a href="http://localhost:4000/2018/04/25/linux-hexo-guide/" target="_blank" rel="noopener">jekyll</a> <a href="http://localhost:4000/2018/04/25/linux-hexo-guide/" target="_blank" rel="noopener">hexo</a> <a href="http://localhost:4000/2018/04/25/linux-hexo-guide/" target="_blank" rel="noopener">pandoc</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/linux-ubuntu-howto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KingRumn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KingRumn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/25/linux-ubuntu-howto/" itemprop="url">Ubuntu 使用记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-25T13:31:24Z">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>安装Ubuntu操作系统是个费事费力的活，把一些基本的记录放在这里，便于以后参考</p>
+<h1 id="背景">背景</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DISTRIB_ID=Ubuntu</span><br><span class="line">DISTRIB_RELEASE=16.04</span><br><span class="line">DISTRIB_CODENAME=xenial</span><br><span class="line">DISTRIB_DESCRIPTION=&quot;Ubuntu 16.04.4 LTS&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="切换软件源">切换软件源</h1>
+<ul>
+<li><p>备份并替换/etc/apt/sources.list的源内容(/etc/apt/sources.list)： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /etc/apt</span><br><span class="line">$ sudo mv sources.list sources.list.bak</span><br><span class="line">$ sudo vi sources.list</span><br></pre></td></tr></table></figure></p></li>
+<li><p>将下面的内容复制到文件中，并保存 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">##测试版源</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"># 源码</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">##测试版源</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"># Canonical 合作伙伴和附加</span><br><span class="line">deb http://archive.canonical.com/ubuntu/ xenial partner</span><br><span class="line">deb http://extras.ubuntu.com/ubuntu/ xenial main</span><br></pre></td></tr></table></figure></p></li>
+<li><p>主动更新一下程序 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h1 id="安装搜狗输入法">安装搜狗输入法</h1>
+<p>基本上分三步走 - 添加fcitx的键盘输入法系统，因为sogou是基于fcitx的，而系统默认的是iBus； - 安装sogou输入法； - 设置系统参数及一些注意点。</p>
+<h2 id="添加fcitx键盘输入法系统">添加fcitx键盘输入法系统</h2>
+<ul>
+<li><p>先添加以下源 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:fcitx-team/nightly</span><br></pre></td></tr></table></figure></p></li>
+<li><p>添加源之后需要更新一下系统 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p></li>
+<li><p>开始安装fcitx <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx</span><br></pre></td></tr></table></figure></p></li>
+<li><p>接着安装fcitx的配置工具 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx-config-gtk</span><br></pre></td></tr></table></figure></p></li>
+<li><p>然后安装fcitx的table-all软件包 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx-table-all</span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装im-switch切换工具 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install im-switch</span><br></pre></td></tr></table></figure></p></li>
+<li><p>看看我们的fcitx是否安装完成 搜索fcitx查看是否有安装成功,其实fcitx只是一个输入法工具,本身不带资源包的,所以Ubuntu下安装搜狗输入法，需要我们自己来下载搜狗输入法的资源包。</p></li>
+</ul>
+<h2 id="安装sogou输入法">安装sogou输入法</h2>
+<ul>
+<li>选择你操作系统的版本下载就可以了<code>https://pinyin.sogou.com/linux/?r=pinyin</code></li>
+<li>用dpkg命令来安装搜狗输入法资源包，出现错误可暂时不用管</li>
+</ul>
+<h2 id="设置语言选项">设置语言选项</h2>
+<ul>
+<li>到系统设置-&gt;语言支持，将键盘输入法系统由默认的iBus设置为fcitx</li>
+<li>这个时候是看不到效果的，一定要注销一次</li>
+<li>搜索出fcitx配置，将sogou输入法设为默认即可 sogou-qimpanel 命令是启动搜狗输入法的。</li>
+<li>如果还是切换不出输入法，那么执行下面的操作： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#配置Fcitx的环境:在~/.bashrc中加入一下内容</span><br><span class="line">export GTK_IM_MODULE=fcitx </span><br><span class="line">export QT_IM_MODULE=fcitx </span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="问题总结">问题总结</h2>
+<p>另外，在安装过程中遇到好几次这个问题，在网上查找到方法解决掉了，总结一下：</p>
+<ul>
+<li>Could not get lock /var/lib/dpkg/lock 通过终端安装程序sudo apt-get install xxx时出错： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>出现这个问题可能是有另外一个程序正在运行，导致资源被锁不可用。而导致资源被锁的原因可能是上次运行安装或更新时没有正常完成，进而出现此状况，解决的办法其实很简单： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#在终端中敲入以下两句</span><br><span class="line">$ sudo rm /var/cache/apt/archives/lock</span><br><span class="line">$ sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure></p>
+<p>再试着安装，问题解决。</p>
+<h1 id="修改dnsserver">修改DNSserver</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/resolvconf/resolv.conf.d/base</span><br></pre></td></tr></table></figure>
+
+<p>修改内容： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">search localdomain #如果本Server为DNS服务器，可以加上这一句，如果不是，可以不加</span><br><span class="line">nameserver 8.8.8.8 #希望修改成的DNS</span><br><span class="line">nameserver 114.114.114.114 #希望修改成的DNS</span><br></pre></td></tr></table></figure></p>
+<p>保存退出，重启网络： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /etc/init.d/networking restart</span><br></pre></td></tr></table></figure></p>
+<p>查看当前DNS： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/resolv.conf</span><br></pre></td></tr></table></figure></p>
+<h1 id="sublime-安装及激活">Sublime 安装及激活</h1>
+<h2 id="安装">安装</h2>
+<p>到官方网站上(<code>http://www.sublimetext.com/3</code>)下载64位（系统位64位）的.deb安装包（<code>http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb</code>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb</span><br><span class="line">$ sudo dpkg -i sublime-text_build-3059_amd64.deb</span><br></pre></td></tr></table></figure>
+
+<h2 id="激活">激活</h2>
+<p>help &gt;&gt; enter Licence <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Nicolas Hennion</span><br><span class="line">Single User License</span><br><span class="line">EA7E-866075</span><br><span class="line">8A01AA83 1D668D24 4484AEBC 3B04512C</span><br><span class="line">827B0DE5 69E9B07A A39ACCC0 F95F5410</span><br><span class="line">729D5639 4C37CECB B2522FB3 8D37FDC1</span><br><span class="line">72899363 BBA441AC A5F47F08 6CD3B3FE</span><br><span class="line">CEFB3783 B2E1BA96 71AAF7B4 AFB61B1D</span><br><span class="line">0CC513E7 52FF2333 9F726D2C CDE53B4A</span><br><span class="line">810C0D4F E1F419A3 CDA0832B 8440565A</span><br><span class="line">35BF00F6 4CA9F869 ED10E245 469C233E</span><br></pre></td></tr></table></figure></p>
+<p>以上激活码可用</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/cv-yolo-install-ubuntu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -260,7 +599,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-25T05:36:18Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-25T12:40:05Z">
                 2018-04-25
               </time>
             
@@ -425,7 +764,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

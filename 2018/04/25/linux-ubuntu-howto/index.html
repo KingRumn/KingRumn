@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-cn">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="安装Ubuntu操作系统是个费事费力的活，把一些基本的记录放在这里，便于以后参考 背景 1234DISTRIB_ID=UbuntuDISTRIB_RELEASE=16.04DISTRIB_CODENAME=xenialDISTRIB_DESCRIPTION=&amp;quot;Ubuntu 16.04.4 LTS&amp;quot;  切换软件源  备份并替换/etc/apt/sources.list的源内容(/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 使用记录">
+<meta property="og:url" content="http://yoursite.com/2018/04/25/linux-ubuntu-howto/index.html">
+<meta property="og:site_name" content="KingRumn">
+<meta property="og:description" content="安装Ubuntu操作系统是个费事费力的活，把一些基本的记录放在这里，便于以后参考 背景 1234DISTRIB_ID=UbuntuDISTRIB_RELEASE=16.04DISTRIB_CODENAME=xenialDISTRIB_DESCRIPTION=&amp;quot;Ubuntu 16.04.4 LTS&amp;quot;  切换软件源  备份并替换/etc/apt/sources.list的源内容(/">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-04-25T13:31:24.916Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu 使用记录">
+<meta name="twitter:description" content="安装Ubuntu操作系统是个费事费力的活，把一些基本的记录放在这里，便于以后参考 背景 1234DISTRIB_ID=UbuntuDISTRIB_RELEASE=16.04DISTRIB_CODENAME=xenialDISTRIB_DESCRIPTION=&amp;quot;Ubuntu 16.04.4 LTS&amp;quot;  切换软件源  备份并替换/etc/apt/sources.list的源内容(/">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/25/linux-ubuntu-howto/"/>
+
+
+
+
+
+  <title>Ubuntu 使用记录 | KingRumn</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">KingRumn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Know what to know.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/linux-ubuntu-howto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KingRumn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KingRumn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ubuntu 使用记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-25T21:31:24+08:00">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>安装Ubuntu操作系统是个费事费力的活，把一些基本的记录放在这里，便于以后参考</p>
+<h1 id="背景">背景</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DISTRIB_ID=Ubuntu</span><br><span class="line">DISTRIB_RELEASE=16.04</span><br><span class="line">DISTRIB_CODENAME=xenial</span><br><span class="line">DISTRIB_DESCRIPTION=&quot;Ubuntu 16.04.4 LTS&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="切换软件源">切换软件源</h1>
+<ul>
+<li><p>备份并替换/etc/apt/sources.list的源内容(/etc/apt/sources.list)： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /etc/apt</span><br><span class="line">$ sudo mv sources.list sources.list.bak</span><br><span class="line">$ sudo vi sources.list</span><br></pre></td></tr></table></figure></p></li>
+<li><p>将下面的内容复制到文件中，并保存 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">##测试版源</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"># 源码</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">##测试版源</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"># Canonical 合作伙伴和附加</span><br><span class="line">deb http://archive.canonical.com/ubuntu/ xenial partner</span><br><span class="line">deb http://extras.ubuntu.com/ubuntu/ xenial main</span><br></pre></td></tr></table></figure></p></li>
+<li><p>主动更新一下程序 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h1 id="安装搜狗输入法">安装搜狗输入法</h1>
+<p>基本上分三步走 - 添加fcitx的键盘输入法系统，因为sogou是基于fcitx的，而系统默认的是iBus； - 安装sogou输入法； - 设置系统参数及一些注意点。</p>
+<h2 id="添加fcitx键盘输入法系统">添加fcitx键盘输入法系统</h2>
+<ul>
+<li><p>先添加以下源 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:fcitx-team/nightly</span><br></pre></td></tr></table></figure></p></li>
+<li><p>添加源之后需要更新一下系统 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p></li>
+<li><p>开始安装fcitx <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx</span><br></pre></td></tr></table></figure></p></li>
+<li><p>接着安装fcitx的配置工具 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx-config-gtk</span><br></pre></td></tr></table></figure></p></li>
+<li><p>然后安装fcitx的table-all软件包 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx-table-all</span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装im-switch切换工具 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install im-switch</span><br></pre></td></tr></table></figure></p></li>
+<li><p>看看我们的fcitx是否安装完成 搜索fcitx查看是否有安装成功,其实fcitx只是一个输入法工具,本身不带资源包的,所以Ubuntu下安装搜狗输入法，需要我们自己来下载搜狗输入法的资源包。</p></li>
+</ul>
+<h2 id="安装sogou输入法">安装sogou输入法</h2>
+<ul>
+<li>选择你操作系统的版本下载就可以了<code>https://pinyin.sogou.com/linux/?r=pinyin</code></li>
+<li>用dpkg命令来安装搜狗输入法资源包，出现错误可暂时不用管</li>
+</ul>
+<h2 id="设置语言选项">设置语言选项</h2>
+<ul>
+<li>到系统设置-&gt;语言支持，将键盘输入法系统由默认的iBus设置为fcitx</li>
+<li>这个时候是看不到效果的，一定要注销一次</li>
+<li>搜索出fcitx配置，将sogou输入法设为默认即可 sogou-qimpanel 命令是启动搜狗输入法的。</li>
+<li>如果还是切换不出输入法，那么执行下面的操作： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#配置Fcitx的环境:在~/.bashrc中加入一下内容</span><br><span class="line">export GTK_IM_MODULE=fcitx </span><br><span class="line">export QT_IM_MODULE=fcitx </span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="问题总结">问题总结</h2>
+<p>另外，在安装过程中遇到好几次这个问题，在网上查找到方法解决掉了，总结一下：</p>
+<ul>
+<li>Could not get lock /var/lib/dpkg/lock 通过终端安装程序sudo apt-get install xxx时出错： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>出现这个问题可能是有另外一个程序正在运行，导致资源被锁不可用。而导致资源被锁的原因可能是上次运行安装或更新时没有正常完成，进而出现此状况，解决的办法其实很简单： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#在终端中敲入以下两句</span><br><span class="line">$ sudo rm /var/cache/apt/archives/lock</span><br><span class="line">$ sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure></p>
+<p>再试着安装，问题解决。</p>
+<h1 id="修改dnsserver">修改DNSserver</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/resolvconf/resolv.conf.d/base</span><br></pre></td></tr></table></figure>
+
+<p>修改内容： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">search localdomain #如果本Server为DNS服务器，可以加上这一句，如果不是，可以不加</span><br><span class="line">nameserver 8.8.8.8 #希望修改成的DNS</span><br><span class="line">nameserver 114.114.114.114 #希望修改成的DNS</span><br></pre></td></tr></table></figure></p>
+<p>保存退出，重启网络： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /etc/init.d/networking restart</span><br></pre></td></tr></table></figure></p>
+<p>查看当前DNS： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/resolv.conf</span><br></pre></td></tr></table></figure></p>
+<h1 id="sublime-安装及激活">Sublime 安装及激活</h1>
+<h2 id="安装">安装</h2>
+<p>到官方网站上(<code>http://www.sublimetext.com/3</code>)下载64位（系统位64位）的.deb安装包（<code>http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb</code>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb</span><br><span class="line">$ sudo dpkg -i sublime-text_build-3059_amd64.deb</span><br></pre></td></tr></table></figure>
+
+<h2 id="激活">激活</h2>
+<p>help &gt;&gt; enter Licence <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Nicolas Hennion</span><br><span class="line">Single User License</span><br><span class="line">EA7E-866075</span><br><span class="line">8A01AA83 1D668D24 4484AEBC 3B04512C</span><br><span class="line">827B0DE5 69E9B07A A39ACCC0 F95F5410</span><br><span class="line">729D5639 4C37CECB B2522FB3 8D37FDC1</span><br><span class="line">72899363 BBA441AC A5F47F08 6CD3B3FE</span><br><span class="line">CEFB3783 B2E1BA96 71AAF7B4 AFB61B1D</span><br><span class="line">0CC513E7 52FF2333 9F726D2C CDE53B4A</span><br><span class="line">810C0D4F E1F419A3 CDA0832B 8440565A</span><br><span class="line">35BF00F6 4CA9F869 ED10E245 469C233E</span><br></pre></td></tr></table></figure></p>
+<p>以上激活码可用</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/25/cv-yolo-install-ubuntu/" rel="next" title="Yolo安装（Ubuntu14.04）">
+                <i class="fa fa-chevron-left"></i> Yolo安装（Ubuntu14.04）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/25/linux-hexo-guide/" rel="prev" title="Ubuntu hexo安装">
+                Ubuntu hexo安装 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">KingRumn</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#切换软件源"><span class="nav-number">2.</span> <span class="nav-text">切换软件源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装搜狗输入法"><span class="nav-number">3.</span> <span class="nav-text">安装搜狗输入法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加fcitx键盘输入法系统"><span class="nav-number">3.1.</span> <span class="nav-text">添加fcitx键盘输入法系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装sogou输入法"><span class="nav-number">3.2.</span> <span class="nav-text">安装sogou输入法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置语言选项"><span class="nav-number">3.3.</span> <span class="nav-text">设置语言选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题总结"><span class="nav-number">3.4.</span> <span class="nav-text">问题总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改dnsserver"><span class="nav-number">4.</span> <span class="nav-text">修改DNSserver</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sublime-安装及激活"><span class="nav-number">5.</span> <span class="nav-text">Sublime 安装及激活</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">5.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#激活"><span class="nav-number">5.2.</span> <span class="nav-text">激活</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KingRumn</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
