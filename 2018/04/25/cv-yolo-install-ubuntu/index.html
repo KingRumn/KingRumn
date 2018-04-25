@@ -79,13 +79,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="KingRumn">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="最近在同事的建议下想要学习一下深度学习的知识，作为环境搭建的第一步，配置Yolo环境。电脑不支持CUDA，该环境仅用来学习，故未对CUDA进行配置和支持。在环境配置过程中也遇到一些问题，记录以作参考。 经验总结 做一件事的时候，最基础的是去官网按照说明走一遍，往往这才是最官方的，也是最正确的，出了问题才去其他地方寻找答案 如果开源的代码出了问题，不妨先在Github上搜一搜看看有没有人碰到  官方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yolo安装（Ubuntu14.04）">
+<meta property="og:url" content="http://yoursite.com/2018/04/25/cv-yolo-install-ubuntu/index.html">
 <meta property="og:site_name" content="KingRumn">
+<meta property="og:description" content="最近在同事的建议下想要学习一下深度学习的知识，作为环境搭建的第一步，配置Yolo环境。电脑不支持CUDA，该环境仅用来学习，故未对CUDA进行配置和支持。在环境配置过程中也遇到一些问题，记录以作参考。 经验总结 做一件事的时候，最基础的是去官网按照说明走一遍，往往这才是最官方的，也是最正确的，出了问题才去其他地方寻找答案 如果开源的代码出了问题，不妨先在Github上搜一搜看看有没有人碰到  官方">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11077939-ec680e8d2fc13fe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11077939-464422dd5d5fb957.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11077939-aa4f4b50a39f74d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-25T05:36:18.801Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KingRumn">
+<meta name="twitter:title" content="Yolo安装（Ubuntu14.04）">
+<meta name="twitter:description" content="最近在同事的建议下想要学习一下深度学习的知识，作为环境搭建的第一步，配置Yolo环境。电脑不支持CUDA，该环境仅用来学习，故未对CUDA进行配置和支持。在环境配置过程中也遇到一些问题，记录以作参考。 经验总结 做一件事的时候，最基础的是去官网按照说明走一遍，往往这才是最官方的，也是最正确的，出了问题才去其他地方寻找答案 如果开源的代码出了问题，不妨先在Github上搜一搜看看有没有人碰到  官方">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/11077939-ec680e8d2fc13fe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -115,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/25/cv-yolo-install-ubuntu/"/>
 
 
 
 
 
-  <title>KingRumn</title>
+  <title>Yolo安装（Ubuntu14.04） | KingRumn</title>
   
 
 
@@ -140,8 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +221,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +253,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/25/cv-yolo-install-ubuntu/" itemprop="url">Yolo安装（Ubuntu14.04）</a></h1>
+          <h1 class="post-title" itemprop="name headline">Yolo安装（Ubuntu14.04）</h1>
         
 
         <div class="post-meta">
@@ -298,9 +303,7 @@
       
 
       
-        
-          
-            <p>最近在同事的建议下想要学习一下深度学习的知识，作为环境搭建的第一步，配置Yolo环境。电脑不支持CUDA，该环境仅用来学习，故未对CUDA进行配置和支持。<br>在环境配置过程中也遇到一些问题，记录以作参考。</p>
+        <p>最近在同事的建议下想要学习一下深度学习的知识，作为环境搭建的第一步，配置Yolo环境。电脑不支持CUDA，该环境仅用来学习，故未对CUDA进行配置和支持。<br>在环境配置过程中也遇到一些问题，记录以作参考。</p>
 <h2 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h2><ul>
 <li>做一件事的时候，最基础的是去官网按照说明走一遍，往往这才是最官方的，也是最正确的，出了问题才去其他地方寻找答案</li>
 <li>如果开源的代码出了问题，不妨先在Github上搜一搜看看有没有人碰到</li>
@@ -336,8 +339,6 @@
 <p>解决方法：找到libopencv_开头到库的目录，在/usr/local/lib下面，在/etc/ld.so.conf.d/下面新建一个opencv.conf，里面写入/usr/local/lib，最后执行下sudo ldconfig -v即可</p>
 <p>好了，写到这里，祝顺利。</p>
 
-          
-        
       
     </div>
     
@@ -354,12 +355,12 @@
       
 
       
+      
+      
 
       
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -369,10 +370,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -380,6 +382,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -400,8 +406,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -443,6 +458,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#经验总结"><span class="nav-number">1.</span> <span class="nav-text">经验总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#官方参考资料"><span class="nav-number">2.</span> <span class="nav-text">官方参考资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装OpenCV"><span class="nav-number">3.</span> <span class="nav-text">安装OpenCV</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检查需求"><span class="nav-number">3.1.</span> <span class="nav-text">检查需求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装darknet"><span class="nav-number">4.</span> <span class="nav-text">安装darknet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载配置文件"><span class="nav-number">4.1.</span> <span class="nav-text">下载配置文件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -583,6 +614,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
