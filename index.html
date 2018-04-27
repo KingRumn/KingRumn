@@ -81,7 +81,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="KingRumn">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://kingrumn.github.io/index.html">
 <meta property="og:site_name" content="KingRumn">
 <meta property="og:locale" content="zh-cn">
 <meta name="twitter:card" content="summary">
@@ -115,7 +115,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://kingrumn.github.io/"/>
 
 
 
@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/26/linux-hexo-guide/">
+    <link itemprop="mainEntityOfPage" href="http://kingrumn.github.io/2018/04/28/linux-hexo-cmd-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KingRumn">
@@ -258,7 +258,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/26/linux-hexo-guide/" itemprop="url">Ubuntu hexo安装</a></h1>
+                <a class="post-title-link" href="/2018/04/28/linux-hexo-cmd-2/" itemprop="url">hexo 添加标签和分类</a></h1>
         
 
         <div class="post-meta">
@@ -270,8 +270,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-26T14:05:05Z">
-                2018-04-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-27T23:00:34Z">
+                2018-04-27
               </time>
             
 
@@ -332,74 +332,7 @@
       
         
           
-            <h1 id="背景">背景</h1>
-<p>各种各样的博客五花八门，但是利用<code>github</code>构建个人看起来很有逼格，在其他地方积累的并不多，因此花了2天的时间研究了一下如何依靠github构建个人博客。 - 主流的个人博客工具包括<code>hexo</code>，<code>jekyll</code>，<code>wordpress</code>等，具体的优劣建议参考：<code>https://www.jianshu.com/p/c4f145fdd637</code> - 个人最终选择了<code>git + github + hexo</code>的方案，主要是命令少，易于学习。</p>
-<h1 id="安装git">安装git</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 安装</span><br><span class="line">$ sudo apt-get install git</span><br><span class="line"># 配置账户</span><br><span class="line">$git config --global user.name &quot;your username&quot; </span><br><span class="line">$git config --global user.email &quot;your_email@youremail.com&quot;</span><br><span class="line">$ssh-keygen -t rsa -C &quot;youremail@email.com&quot;</span><br></pre></td></tr></table></figure>
-
-<h1 id="创建github-pages">创建github pages</h1>
-<ol style="list-style-type: decimal">
-<li><p>注册账户 如果你还没有<code>github</code>的账号，去注册一个吧（<code>https://github.com/join?source=header-home</code>），一个有逼格的程序员，这是必须的</p></li>
-<li>创建github pages</li>
-</ol>
-<ul>
-<li>登录（<code>https://github.com</code>）</li>
-<li>找到<code>Start a project</code>或者<code>New repository</code>创建个项目 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yourname/yourname.github.io	</span><br><span class="line"># 这个地址必须严格按这个写，错了是无法访问的</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong>Notice</strong>: <code>yourname</code>必须是你注册时的用户名，如果你忘记了，去点下你的头像，下拉出来的<code>Signed in as</code>后面就是你的名字</p>
-<ol start="3" style="list-style-type: decimal">
-<li>书写第一个主页</li>
-</ol>
-<ul>
-<li><p>pull代码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd yourworkdir 	#yourworkdir是工作目录</span><br><span class="line">$ git clone https://github.com/yourname/yourname.github.io</span><br><span class="line">$ cd yourname.github.io</span><br><span class="line">$ touch index.htm	# 创建默认页面</span><br></pre></td></tr></table></figure></p></li>
-<li><p>创建页面 通过vim或gedit编辑<code>index.htm</code>并输入以下内容 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;My Blog&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;Hello，world！&lt;/p&gt;</span><br><span class="line">&lt;p&gt;This is my first blog. &lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>上传代码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m &quot;创建我的第一个页面&quot;</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-<p>后续一般需要输入用户名（yourname）和密码（登录密码）</p>
-<ol start="4" style="list-style-type: decimal">
-<li>访问页面 创建成功后，通过<code>https://yourname.github.io</code>即可访问刚才书写的页面</li>
-</ol>
-<p>这样你的个人博客已经可以访问了，如果你已经可以自己构建个网站结构，那就直接开搞吧，不过作为看这个教程的人，一般都需要去寻找一个现成的搭建博客的方案，比如<code>hexo</code>,<code>jekyll</code>等，下面先介绍<code>hexo</code>的使用过程。</p>
-<h1 id="安装hexo">安装hexo</h1>
-<ol style="list-style-type: decimal">
-<li>安装nodejs 不建议使用apt-get方式安装，容易失败； 建议使用nvm工具进行安装（nvm是一个可以让你在同一台机器上安装和切换不同版本node的工具） 使用如下命令进行安装： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot; &amp;&amp; (</span><br><span class="line">  git clone https://github.com/creationix/nvm.git &quot;$NVM_DIR&quot;</span><br><span class="line">  cd &quot;$NVM_DIR&quot;</span><br><span class="line">  git checkout `git describe --abbrev=0 --tags --match &quot;v[0-9]*&quot; origin`</span><br><span class="line">) &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>使nvm开机启动，将如下内容添加到<code>~/.bashrc</code>中： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</span><br><span class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></p>
-<p>重启 <code>terminal</code>或者重新<code>source</code>一下 <code>~/.bashrc</code>； 执行以下命令： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$nvm ls-remote //列出所有安装包的版本信息</span><br><span class="line">$nvm install stable //安装最稳定版本</span><br><span class="line">$nvm use node //使用当前版本</span><br><span class="line">$nvm run node --version //也可以使用该命令 使用当前版本</span><br><span class="line">$nvm alias default node //设置默认版本</span><br></pre></td></tr></table></figure></p>
-<p>如果需要更新则手动更新 nvm: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line"> cd &quot;$NVM_DIR&quot;</span><br><span class="line"> git fetch origin</span><br><span class="line"> git checkout `git describe --abbrev=0 --tags --match &quot;v[0-9]*&quot; origin`</span><br><span class="line">) &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></p>
-<ol start="2" style="list-style-type: decimal">
-<li>安装hexo <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$npm install  hexo-cli -g</span><br><span class="line">$npm install hexo-server -g</span><br><span class="line">$npm install hexo-deployer-git -g</span><br><span class="line">$npm install hexo-util -g</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>接下来建立博客目录，并初始化： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd yourworkdir</span><br><span class="line">$ mkdir yourblogdir</span><br><span class="line">$ cd yourblogdir</span><br><span class="line">$ hexo init //初始化 下载必要的建站文件</span><br><span class="line">$ npm install //安装依赖项</span><br></pre></td></tr></table></figure></p>
-<p>接下来就可以开始博客的撰写了。</p>
-<h1 id="撰写博客">撰写博客</h1>
-<p>由于创建站点的时候，已经包含了一个<code>hello-world</code>的基础页面，所以不需要任何编辑，直接可以生成网站</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean # 清除缓存</span><br><span class="line">$ hexo g	# 生成页面</span><br><span class="line">$ hexo s	#运行本地服务</span><br></pre></td></tr></table></figure>
-
-<p>之后可以看到提示<code>hexo is running at http://localhost:4000/. Press ctrl+c to stop</code>，可见只需要在浏览器中输入<code>http://localhost:4000</code>即可看到页面，如果你不想运行了，直接Ctrl+c就可以了。</p>
-<h1 id="发布博客">发布博客</h1>
-<p>到现在为止，这些操作都还是在本地完成的，那么我们怎么才能把这些东西推送到github的个人页面上去呢？</p>
-<p>通过<code>hexo-deployer-git</code>神器即可完成操作</p>
-<ul>
-<li>安装<code>hexo-deployer-git</code></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>配置网站git</li>
-</ul>
-<p>在站点配置文件(yourblogdir/_config.yml)修改如下配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repo: &lt;your repository url&gt; #你的github上创建的yourname.github.io的仓库的地址</span><br><span class="line">	branch: [branch]	# 分支名称，可选的，默认时master分支</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>部署</li>
-</ul>
-<p>下面的命令可以实现一键部署，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
-<p>这时候，浏览器中输入<code>https://yourname.github.io</code>是不是可以看到自己的博客了呢，大功告成。</p>
-<h1 id="参考">参考</h1>
-<p><a href="http://stevenshi.me/2017/05/23/ubuntu-hexo/" target="_blank" rel="noopener">ubuntu 下 hexo 安装与配置</a> <a href="https://jekyllrb.com/" target="_blank" rel="noopener">jekyll</a> <a href="https://hexo.io/zh-cn" target="_blank" rel="noopener">hexo</a> <a href="https://pandoc.org/" target="_blank" rel="noopener">pandoc</a></p>
+            
 
           
         
@@ -448,7 +381,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/26/linux-hexo-cmd-1/">
+    <link itemprop="mainEntityOfPage" href="http://kingrumn.github.io/2018/04/28/linux-hexo-cmd-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KingRumn">
@@ -467,7 +400,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/26/linux-hexo-cmd-1/" itemprop="url">hexo 基础命令</a></h1>
+                <a class="post-title-link" href="/2018/04/28/linux-hexo-cmd-1/" itemprop="url">hexo 简介</a></h1>
         
 
         <div class="post-meta">
@@ -479,8 +412,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-26T12:21:29Z">
-                2018-04-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-27T22:00:34Z">
+                2018-04-27
               </time>
             
 
@@ -541,52 +474,129 @@
       
         
           
-            <h1 id="背景">背景</h1>
-<p>各种各样的博客五花八门，但是利用<code>github</code>构建个人看起来很有逼格，在其他地方积累的并不多，因此花了2天的时间研究了一下如何依靠github构建个人博客。 - 主流的个人博客工具包括<code>hexo</code>，<code>jekyll</code>，<code>wordpress</code>等，具体的优劣建议参考：<code>https://www.jianshu.com/p/c4f145fdd637</code> - 个人最终选择了<code>git + github + hexo</code>的方案，主要是命令少，易于学习。</p>
-<h1 id="安装git">安装git</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 安装</span><br><span class="line">$ sudo apt-get install git</span><br><span class="line"># 配置账户</span><br><span class="line">$git config --global user.name &quot;your username&quot; </span><br><span class="line">$git config --global user.email &quot;your_email@youremail.com&quot;</span><br><span class="line">$ssh-keygen -t rsa -C &quot;youremail@email.com&quot;</span><br></pre></td></tr></table></figure>
+            <h1 id="基本介绍">基本介绍</h1>
+<p>Hexo是一个快速/简洁/高效的博客框架，使用Markdown作为渲染引擎解析文章，结合丰富的主题，分分钟生成绚丽的静态网页，是博客写作的首选。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml		# 站点配置文件</span><br><span class="line">├── node_modules	# 中间产物</span><br><span class="line">├── package.json	# 应用程序信息，包括markdown渲染器等</span><br><span class="line">├── public			# hexo生成的页面信息</span><br><span class="line">│   ├── 2018</span><br><span class="line">│   ├── archives</span><br><span class="line">│   ├── categories</span><br><span class="line">│   ├── css</span><br><span class="line">│   ├── images</span><br><span class="line">│   ├── index.html</span><br><span class="line">│   ├── js</span><br><span class="line">│   └── lib</span><br><span class="line">├── README.md		# 介绍文件</span><br><span class="line">├── scaffolds		# 模板文件，新建文章时，Hexo会据此来建立新的文件</span><br><span class="line">│   ├── draft.md	# 草稿</span><br><span class="line">│   ├── page.md		# </span><br><span class="line">│   └── post.md		# 文章</span><br><span class="line">├── source</span><br><span class="line">│   ├── categories	# 资源文件，除_post外，开头命名为_的文件/文件夹和隐藏文件在生成过程中会被忽略</span><br><span class="line">│   ├── _drafts		# 草稿</span><br><span class="line">│   └── _posts</span><br><span class="line">└── themes			# 主题文件夹</span><br><span class="line">    ├── hexo-theme-next	# next主题</span><br><span class="line">    └── landscape		# 默认主题</span><br></pre></td></tr></table></figure>
 
-<h1 id="github-pages">github pages</h1>
-<ol style="list-style-type: decimal">
-<li><p>注册账户 如果你还没有<code>github</code>的账号，去注册一个吧（<code>https://github.com/join?source=header-home</code>），一个有逼格的程序员，这是必须的</p></li>
-<li>创建github pages</li>
-</ol>
-<ul>
-<li>登录（<code>https://github.com</code>）</li>
-<li>找到<code>Start a project</code>或者<code>New repository</code>创建个项目 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yourname/yourname.github.io	</span><br><span class="line"># 这个地址必须严格按这个写，错了是无法访问的</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong>Notice</strong>: <code>yourname</code>必须是你注册时的用户名，如果你忘记了，去点下你的头像，下拉出来的<code>Signed in as</code>后面就是你的名字</p>
-<ol start="3" style="list-style-type: decimal">
-<li>书写第一个主页</li>
-</ol>
-<ul>
-<li><p>pull代码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd yourworkdir 	#yourworkdir是工作目录</span><br><span class="line">$ git clone https://github.com/yourname/yourname.github.io</span><br><span class="line">$ cd yourname.github.io</span><br><span class="line">$ touch index.htm	# 创建默认页面</span><br></pre></td></tr></table></figure></p></li>
-<li><p>创建页面 通过vim或gedit编辑<code>index.htm</code>并输入以下内容 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;My Blog&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;Hello，world！&lt;/p&gt;</span><br><span class="line">&lt;p&gt;This is my first blog. &lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>上传代码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m &quot;创建我的第一个页面&quot;</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-<p>后续一般需要输入用户名（yourname）和密码（登录密码）</p>
-<ol start="4" style="list-style-type: decimal">
-<li>访问页面 创建成功后，通过<code>https://yourname.github.io</code>即可访问刚才书写的页面</li>
-</ol>
-<p>这样你的个人博客已经可以访问了，如果你已经可以自己构建个网站结构，那就直接开搞吧，不过作为看这个教程的人，一般都需要去寻找一个现成的搭建博客的方案，比如<code>hexo</code>,<code>jekyll</code>等，下面先介绍<code>hexo</code>的使用过程。</p>
-<h1 id="安装hexo">安装hexo</h1>
-<ol style="list-style-type: decimal">
-<li>安装nodejs 不建议使用apt-get方式安装，容易失败； 建议使用nvm工具进行安装（nvm是一个可以让你在同一台机器上安装和切换不同版本node的工具） 使用如下命令进行安装： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot; &amp;&amp; (</span><br><span class="line">  git clone https://github.com/creationix/nvm.git &quot;$NVM_DIR&quot;</span><br><span class="line">  cd &quot;$NVM_DIR&quot;</span><br><span class="line">  git checkout `git describe --abbrev=0 --tags --match &quot;v[0-9]*&quot; origin`</span><br><span class="line">) &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>使nvm开机启动，将如下内容添加到<code>~/.bashrc</code>中： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</span><br><span class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></p>
-<p>重启 <code>terminal</code>或者重新<code>source</code>一下 <code>~/.bashrc</code>； 执行以下命令： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$nvm ls-remote //列出所有安装包的版本信息</span><br><span class="line">$nvm install stable //安装最稳定版本</span><br><span class="line">$nvm use node //使用当前版本</span><br><span class="line">$nvm run node --version //也可以使用该命令 使用当前版本</span><br><span class="line">$nvm alias default node //设置默认版本</span><br></pre></td></tr></table></figure></p>
-<p>如果需要更新则手动更新 nvm: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line"> cd &quot;$NVM_DIR&quot;</span><br><span class="line"> git fetch origin</span><br><span class="line"> git checkout `git describe --abbrev=0 --tags --match &quot;v[0-9]*&quot; origin`</span><br><span class="line">) &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></p>
-<ol start="2" style="list-style-type: decimal">
-<li>安装hexo <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$npm install  hexo-cli -g</span><br><span class="line">$npm install hexo-server -g</span><br><span class="line">$npm install hexo-deployer-git -g</span><br><span class="line">$npm install hexo-util -g</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>接下来建立博客目录，并初始化： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd yourworkdir</span><br><span class="line">$ mkdir yourblogdir</span><br><span class="line">$ cd yourblogdir</span><br><span class="line">$ hexo init //初始化 下载必要的建站文件</span><br><span class="line">$ npm install //安装依赖项</span><br></pre></td></tr></table></figure></p>
-<p>接下来就可以开始博客的撰写了。 # 配置hexo 1. 选择主题 2. 修改markdown渲染引擎</p>
-<h1 id="撰写博客">撰写博客</h1>
-<p>Todo</p>
-<h1 id="发布博客">发布博客</h1>
-<p>Todo</p>
-<h1 id="参考">参考</h1>
-<p><a href="http://stevenshi.me/2017/05/23/ubuntu-hexo/" target="_blank" rel="noopener">ubuntu 下 hexo 安装与配置</a> <a href="http://localhost:4000/2018/04/25/linux-hexo-guide/" target="_blank" rel="noopener">jekyll</a> <a href="http://localhost:4000/2018/04/25/linux-hexo-guide/" target="_blank" rel="noopener">hexo</a> <a href="http://localhost:4000/2018/04/25/linux-hexo-guide/" target="_blank" rel="noopener">pandoc</a></p>
+<h1 id="基本命令">基本命令</h1>
+<h2 id="init">init</h2>
+<p>新建一个网站，如果folder可选，在当前目录中建立网站。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
+
+<h2 id="new">new</h2>
+<p>新建一篇文章，layout可选，默认使用default_layout替代参数，如果标题包含空格，需要用引号括起来。</p>
+<p>会在source下对应的文件夹生成相应的文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="generate">generate</h2>
+<p>生成静态页面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate		# 简写为 hexo g</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">选项</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">-d, --deploy</td>
+<td align="left">文件生成后立即部署</td>
+</tr>
+<tr class="even">
+<td align="left">-w, --watch</td>
+<td align="left">监视文件变化</td>
+</tr>
+</tbody>
+</table>
+<h2 id="public">public</h2>
+<p>发表草稿。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo public [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="server">server</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server		# 简写为 hexo s</span><br></pre></td></tr></table></figure>
+
+<p>启动服务器，默认情况下，网址为：<code>http://localhost:4000</code></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">选项</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">-p, --port</td>
+<td align="left">重设端口</td>
+</tr>
+<tr class="even">
+<td align="left">-s, --static</td>
+<td align="left">只使用静态文件</td>
+</tr>
+<tr class="odd">
+<td align="left">-l, --log</td>
+<td align="left">启动日志记录，使用覆盖格式</td>
+</tr>
+</tbody>
+</table>
+<h2 id="deploy">deploy</h2>
+<p>部署网站</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy		# 简写为 hexo d</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">选项</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">-g, --generate</td>
+<td align="left">部署之前预先生成静态文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="render">render</h2>
+<p>渲染文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo render &lt;file1&gt; [file2]</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">选项</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">-o, --output</td>
+<td align="left">设置输出路径</td>
+</tr>
+</tbody>
+</table>
+<h2 id="migrage">migrage</h2>
+<p>从其他博客系统迁移内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo migrate &lt;type&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="clean">clean</h2>
+<p>清除缓存文件(db.json)和已生成的静态文件(public)，更换主题后，这是必须的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+
+<h2 id="list">list</h2>
+<p>列出网站资料</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo list</span><br></pre></td></tr></table></figure>
+
+<h2 id="version">version</h2>
+<p>显示hexo版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo version</span><br></pre></td></tr></table></figure>
+
+<h2 id="选项">选项</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --safe		#安全模式，不载入插件和脚本，可用于插件安装遭遇问题时</span><br><span class="line">$ hexo --debug		#调试模式，在终端显示调试信息，并记录到debug.log</span><br><span class="line">$ hexo --silent		# 简洁模式，隐藏终端信息</span><br><span class="line">$ hexo --config custom.yml		# 自定义配置文件路径</span><br><span class="line">$ hexo --draft			# 显示source/_draft文件夹下的草稿文件</span><br><span class="line">$ hexo --cwd /path/to/cwd	#自定义当前工作目录的路径</span><br></pre></td></tr></table></figure>
+
+
+
 
           
         
@@ -635,7 +645,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/26/linux-hexo-cmd-2/">
+    <link itemprop="mainEntityOfPage" href="http://kingrumn.github.io/2018/04/27/linux-tmux-howto/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KingRumn">
@@ -654,7 +664,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/26/linux-hexo-cmd-2/" itemprop="url">hexo 添加标签和分类</a></h1>
+                <a class="post-title-link" href="/2018/04/27/linux-tmux-howto/" itemprop="url">tmux安装与配置（Ubuntu)</a></h1>
         
 
         <div class="post-meta">
@@ -666,8 +676,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-26T12:21:17Z">
-                2018-04-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-27T04:37:00Z">
+                2018-04-27
               </time>
             
 
@@ -689,8 +699,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">ubuntu</span>
                   </a>
                 </span>
 
@@ -728,52 +738,26 @@
       
         
           
-            <h1 id="背景">背景</h1>
-<p>各种各样的博客五花八门，但是利用<code>github</code>构建个人看起来很有逼格，在其他地方积累的并不多，因此花了2天的时间研究了一下如何依靠github构建个人博客。 - 主流的个人博客工具包括<code>hexo</code>，<code>jekyll</code>，<code>wordpress</code>等，具体的优劣建议参考：<code>https://www.jianshu.com/p/c4f145fdd637</code> - 个人最终选择了<code>git + github + hexo</code>的方案，主要是命令少，易于学习。</p>
-<h1 id="安装git">安装git</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 安装</span><br><span class="line">$ sudo apt-get install git</span><br><span class="line"># 配置账户</span><br><span class="line">$git config --global user.name &quot;your username&quot; </span><br><span class="line">$git config --global user.email &quot;your_email@youremail.com&quot;</span><br><span class="line">$ssh-keygen -t rsa -C &quot;youremail@email.com&quot;</span><br></pre></td></tr></table></figure>
+            <p>tmux 是当前为止最好用的多窗口管理神器</p>
+<h1 id="安装">安装</h1>
+<ul>
+<li>工具安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install tmux</span><br></pre></td></tr></table></figure>
 
-<h1 id="github-pages">github pages</h1>
-<ol style="list-style-type: decimal">
-<li><p>注册账户 如果你还没有<code>github</code>的账号，去注册一个吧（<code>https://github.com/join?source=header-home</code>），一个有逼格的程序员，这是必须的</p></li>
-<li>创建github pages</li>
-</ol>
 <ul>
-<li>登录（<code>https://github.com</code>）</li>
-<li>找到<code>Start a project</code>或者<code>New repository</code>创建个项目 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yourname/yourname.github.io	</span><br><span class="line"># 这个地址必须严格按这个写，错了是无法访问的</span><br></pre></td></tr></table></figure></li>
+<li>源码安装</li>
 </ul>
-<p><strong>Notice</strong>: <code>yourname</code>必须是你注册时的用户名，如果你忘记了，去点下你的头像，下拉出来的<code>Signed in as</code>后面就是你的名字</p>
-<ol start="3" style="list-style-type: decimal">
-<li>书写第一个主页</li>
-</ol>
-<ul>
-<li><p>pull代码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd yourworkdir 	#yourworkdir是工作目录</span><br><span class="line">$ git clone https://github.com/yourname/yourname.github.io</span><br><span class="line">$ cd yourname.github.io</span><br><span class="line">$ touch index.htm	# 创建默认页面</span><br></pre></td></tr></table></figure></p></li>
-<li><p>创建页面 通过vim或gedit编辑<code>index.htm</code>并输入以下内容 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;My Blog&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;Hello，world！&lt;/p&gt;</span><br><span class="line">&lt;p&gt;This is my first blog. &lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>上传代码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m &quot;创建我的第一个页面&quot;</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-<p>后续一般需要输入用户名（yourname）和密码（登录密码）</p>
-<ol start="4" style="list-style-type: decimal">
-<li>访问页面 创建成功后，通过<code>https://yourname.github.io</code>即可访问刚才书写的页面</li>
-</ol>
-<p>这样你的个人博客已经可以访问了，如果你已经可以自己构建个网站结构，那就直接开搞吧，不过作为看这个教程的人，一般都需要去寻找一个现成的搭建博客的方案，比如<code>hexo</code>,<code>jekyll</code>等，下面先介绍<code>hexo</code>的使用过程。</p>
-<h1 id="安装hexo">安装hexo</h1>
-<ol style="list-style-type: decimal">
-<li>安装nodejs 不建议使用apt-get方式安装，容易失败； 建议使用nvm工具进行安装（nvm是一个可以让你在同一台机器上安装和切换不同版本node的工具） 使用如下命令进行安装： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot; &amp;&amp; (</span><br><span class="line">  git clone https://github.com/creationix/nvm.git &quot;$NVM_DIR&quot;</span><br><span class="line">  cd &quot;$NVM_DIR&quot;</span><br><span class="line">  git checkout `git describe --abbrev=0 --tags --match &quot;v[0-9]*&quot; origin`</span><br><span class="line">) &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>使nvm开机启动，将如下内容添加到<code>~/.bashrc</code>中： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</span><br><span class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></p>
-<p>重启 <code>terminal</code>或者重新<code>source</code>一下 <code>~/.bashrc</code>； 执行以下命令： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$nvm ls-remote //列出所有安装包的版本信息</span><br><span class="line">$nvm install stable //安装最稳定版本</span><br><span class="line">$nvm use node //使用当前版本</span><br><span class="line">$nvm run node --version //也可以使用该命令 使用当前版本</span><br><span class="line">$nvm alias default node //设置默认版本</span><br></pre></td></tr></table></figure></p>
-<p>如果需要更新则手动更新 nvm: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line"> cd &quot;$NVM_DIR&quot;</span><br><span class="line"> git fetch origin</span><br><span class="line"> git checkout `git describe --abbrev=0 --tags --match &quot;v[0-9]*&quot; origin`</span><br><span class="line">) &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></p>
-<ol start="2" style="list-style-type: decimal">
-<li>安装hexo <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$npm install  hexo-cli -g</span><br><span class="line">$npm install hexo-server -g</span><br><span class="line">$npm install hexo-deployer-git -g</span><br><span class="line">$npm install hexo-util -g</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>接下来建立博客目录，并初始化： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd yourworkdir</span><br><span class="line">$ mkdir yourblogdir</span><br><span class="line">$ cd yourblogdir</span><br><span class="line">$ hexo init //初始化 下载必要的建站文件</span><br><span class="line">$ npm install //安装依赖项</span><br></pre></td></tr></table></figure></p>
-<p>接下来就可以开始博客的撰写了。 # 配置hexo 1. 选择主题 2. 修改markdown渲染引擎</p>
-<h1 id="撰写博客">撰写博客</h1>
-<p>Todo</p>
-<h1 id="发布博客">发布博客</h1>
-<p>Todo</p>
-<h1 id="参考">参考</h1>
-<p><a href="http://stevenshi.me/2017/05/23/ubuntu-hexo/" target="_blank" rel="noopener">ubuntu 下 hexo 安装与配置</a> <a href="http://localhost:4000/2018/04/25/linux-hexo-guide/" target="_blank" rel="noopener">jekyll</a> <a href="http://localhost:4000/2018/04/25/linux-hexo-guide/" target="_blank" rel="noopener">hexo</a> <a href="http://localhost:4000/2018/04/25/linux-hexo-guide/" target="_blank" rel="noopener">pandoc</a></p>
+<p>To do</p>
+<h1 id="配置">配置</h1>
+<p>tmux的配置文件包括<code>tmux.conf</code> , <code>.tmux.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.tmux.conf</span><br></pre></td></tr></table></figure>
+
+<p>暂时可使用如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">#  </span><br><span class="line"># author   :  </span><br><span class="line"># modified :   </span><br><span class="line">#  </span><br><span class="line">  </span><br><span class="line">#-- base settings --#  </span><br><span class="line">set -g default-terminal &quot;xterm-256color&quot;  </span><br><span class="line">set -g display-time 3000  </span><br><span class="line">set -g escape-time 0  </span><br><span class="line">set -g history-limit 65535  </span><br><span class="line">set -g base-index 1  </span><br><span class="line">set -g pane-base-index 1  </span><br><span class="line">  </span><br><span class="line">#-- bindkeys --#  </span><br><span class="line"># prefix key (Ctrl+a)  </span><br><span class="line">set -g prefix ^a  </span><br><span class="line">unbind ^b  </span><br><span class="line">bind a send-prefix  </span><br><span class="line">  </span><br><span class="line"># split window  </span><br><span class="line">unbind &apos;&quot;&apos;  </span><br><span class="line">#bind - splitw -v # vertical split (prefix -)  </span><br><span class="line">bind-key s split-window -v  </span><br><span class="line">unbind %  </span><br><span class="line">#bind | splitw -h # horizontal split (prefix |)  </span><br><span class="line">bind-key v split-window -h  </span><br><span class="line">  </span><br><span class="line">bind C-l send-keys &apos;C-l&apos;  </span><br><span class="line">  </span><br><span class="line"># select pane  </span><br><span class="line">bind k selectp -U # above (prefix k)  </span><br><span class="line">bind j selectp -D # below (prefix j)  </span><br><span class="line">bind h selectp -L # left (prefix h)  </span><br><span class="line">bind l selectp -R # right (prefix l)  </span><br><span class="line">  </span><br><span class="line"># resize pane  </span><br><span class="line">#bind -r ^k resizep -U 10 # upward (prefix Ctrl+k)  </span><br><span class="line">#bind -r ^j resizep -D 10 # downward (prefix Ctrl+j)  </span><br><span class="line">#bind -r ^h resizep -L 10 # to the left (prefix Ctrl+h)  </span><br><span class="line">#bind -r ^l resizep -R 10 # to the right (prefix Ctrl+l)  </span><br><span class="line">  </span><br><span class="line"># Smart pane switching with awareness of vim splits  </span><br><span class="line">bind -n C-h run &quot;(tmux display-message -p &apos;#&#123;pane_current_command&#125;&apos; | grep -iqE &apos;(^|\/)vim(diff)?$&apos; &amp;&amp; tmux send-keys C-h) || tmux select-pane -L&quot;  </span><br><span class="line">bind -n C-j run &quot;(tmux display-message -p &apos;#&#123;pane_current_command&#125;&apos; | grep -iqE &apos;(^|\/)vim(diff)?$&apos; &amp;&amp; tmux send-keys C-j) || tmux select-pane -D&quot;  </span><br><span class="line">bind -n C-k run &quot;(tmux display-message -p &apos;#&#123;pane_current_command&#125;&apos; | grep -iqE &apos;(^|\/)vim(diff)?$&apos; &amp;&amp; tmux send-keys C-k) || tmux select-pane -U&quot;  </span><br><span class="line">bind -n C-l run &quot;(tmux display-message -p &apos;#&#123;pane_current_command&#125;&apos; | grep -iqE &apos;(^|\/)vim(diff)?$&apos; &amp;&amp; tmux send-keys C-l) || tmux select-pane -R&quot;  </span><br><span class="line">bind -n C-\ run &quot;(tmux display-message -p &apos;#&#123;pane_current_command&#125;&apos; | grep -iqE &apos;(^|\/)vim(diff)?$&apos; &amp;&amp; tmux send-keys &apos;C-\\&apos;) || tmux select-pane -l&quot;  </span><br><span class="line">bind C-l send-keys &apos;C-l&apos;  </span><br><span class="line">  </span><br><span class="line"># swap pane  </span><br><span class="line">bind ^u swapp -U # swap with the previous pane (prefix Ctrl+u)  </span><br><span class="line">bind ^d swapp -D # swap with the next pane (prefix Ctrl+d)  </span><br><span class="line">  </span><br><span class="line"># misc  </span><br><span class="line">bind e lastp  # select the last pane (prefix e)  </span><br><span class="line">bind ^e last  # select the last window (prefix Ctrl+e)  </span><br><span class="line">bind q killp  # kill pane (prefix q)  </span><br><span class="line">bind ^q killw # kill window (prefix Ctrl+q)  </span><br><span class="line">  </span><br><span class="line"># copy mode  </span><br><span class="line">#bind Escape copy-mode             # enter copy mode (prefix Escape)  </span><br><span class="line">#bind ^p pasteb                    # paste buffer (prefix Ctrl+p)  </span><br><span class="line">bind -t vi-copy v begin-selection # select (v)  </span><br><span class="line">bind -t vi-copy y copy-selection  # copy (y)  </span><br><span class="line">  </span><br><span class="line"># app  </span><br><span class="line">bind ! splitw htop                                     # htop (prefix !)  </span><br><span class="line">bind m command-prompt &quot;splitw &apos;exec man %%&apos;&quot;           # man (prefix m)  </span><br><span class="line">bind @ command-prompt &quot;splitw &apos;exec perldoc -t -f %%&apos;&quot; # perl func (prefix @)  </span><br><span class="line">bind * command-prompt &quot;splitw &apos;exec perldoc -t -v %%&apos;&quot; # perl var (prefix *)  </span><br><span class="line">bind % command-prompt &quot;splitw &apos;exec perldoc -t %%&apos;&quot;    # perl doc (prefix %)  </span><br><span class="line">bind / command-prompt &quot;splitw &apos;exec ri %%&apos;&quot;            # ruby doc (prefix /)  </span><br><span class="line">  </span><br><span class="line"># reload config (prefix r)  </span><br><span class="line">bind r source ~/.tmux.conf \; display &quot;Configuration reloaded!&quot;  </span><br><span class="line">  </span><br><span class="line">#-- statusbar --#  </span><br><span class="line">set -g status-utf8 on  </span><br><span class="line">set -g status-interval 1  </span><br><span class="line">set -g status-keys vi  </span><br><span class="line">  </span><br><span class="line">setw -g mode-keys vi  </span><br><span class="line">setw -g automatic-rename off  </span><br><span class="line">  </span><br><span class="line">#-- colorscheme --#  </span><br><span class="line"># see also: https://github.com/daethorian/conf-tmux/blob/master/colors/zenburn.conf  </span><br><span class="line">  </span><br><span class="line"># modes  </span><br><span class="line">setw -g clock-mode-colour colour223  </span><br><span class="line">setw -g mode-attr bold  </span><br><span class="line">setw -g mode-fg colour223  </span><br><span class="line">setw -g mode-bg colour235  </span><br><span class="line">  </span><br><span class="line"># panes  </span><br><span class="line">set -g pane-border-bg colour234  </span><br><span class="line">set -g pane-border-fg colour234  </span><br><span class="line">set -g pane-active-border-bg colour232  </span><br><span class="line">set -g pane-active-border-fg colour232  </span><br><span class="line">  </span><br><span class="line"># statusbar  </span><br><span class="line">set -g status-justify centre  </span><br><span class="line">set -g status-bg colour235  </span><br><span class="line">set -g status-fg colour248  </span><br><span class="line">set -g status-attr dim  </span><br><span class="line">set -g status-left &quot;#[default]» #[fg=colour187]#S #[default]• #[fg=colour187]w#I.p#P#[default]&quot;  </span><br><span class="line">set -g status-left-attr bright  </span><br><span class="line">set -g status-left-length 20  </span><br><span class="line">set -g status-right &quot;#[fg=colour174]#(/home/xiaodong/bin/uptime) #[default]• #[fg=colour174]#(cut -d &apos; &apos; -f 1-3 /proc/loadavg)&quot;  </span><br><span class="line">set -g status-right-attr bright  </span><br><span class="line">set -g status-right-length 80  </span><br><span class="line">  </span><br><span class="line">setw -g window-status-current-fg colour223  </span><br><span class="line">setw -g window-status-current-bg colour237  </span><br><span class="line">setw -g window-status-current-attr bold  </span><br><span class="line">setw -g window-status-current-format &quot;#I:#W#F&quot;  </span><br><span class="line">  </span><br><span class="line">#setw -g window-status-alert-attr bold  </span><br><span class="line">#setw -g window-status-alert-fg colour255  </span><br><span class="line">#setw -g window-status-alert-bg colour160  </span><br><span class="line">  </span><br><span class="line"># messages  </span><br><span class="line">set -g message-attr bold  </span><br><span class="line">set -g message-fg colour223  </span><br><span class="line">set -g message-bg colour235  </span><br><span class="line"></span><br><span class="line"># mouse</span><br><span class="line">set-option -g mouse on</span><br></pre></td></tr></table></figure>
+
+
+
 
           
         
@@ -822,7 +806,179 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/26/cv-yolo-install-ubuntu/">
+    <link itemprop="mainEntityOfPage" href="http://kingrumn.github.io/2018/04/27/linux-vim-clipboard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KingRumn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KingRumn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/27/linux-vim-clipboard/" itemprop="url">vim复制内容到剪贴板</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-27T04:00:34Z">
+                2018-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">ubuntu</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="问题背景">问题背景</h1>
+<p>VIM使用过程中需要将内容直接复制到系统剪贴板，使用场景：</p>
+<ol style="list-style-type: decimal">
+<li>在vim编辑过程中，需要将某些内容直接复制，并粘贴到博客或gedit中；</li>
+<li>在2个窗口中分别用vim编辑，此时无法通过vim操作完成，只能借助系统剪贴板</li>
+</ol>
+<h1 id="解决方案">解决方案</h1>
+<h2 id="判断支持性">判断支持性</h2>
+<p>首先需要检查vim是否支持系统剪贴板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim --version | grep &quot;clipboard&quot;</span><br><span class="line">&gt; -clipboard</span><br></pre></td></tr></table></figure>
+
+<p>如果<code>clipboard</code>前面有个<code>-</code> ，则说明vim并不支持系统剪贴板。</p>
+<h2 id="启用vim对剪贴板的支持">启用vim对剪贴板的支持</h2>
+<ul>
+<li>方案一：安装图形化界面vim</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install vim-gnome</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方案二：重新编译vim，并开启支持</li>
+</ul>
+<p>此时，重新检查，判断<code>-</code> 是否变成了<code>+</code>，如果是<code>+</code>说明已经支持了。</p>
+<h2 id="vim寄存器">vim寄存器</h2>
+<p>打开vim，输入<code>:reg</code>查看vim寄存器，当支持clipboard之后，会多出<code>&quot;+</code>寄存器，表示系统剪切板，在vim中进入visual视图后使用<code>&quot;Ny</code>(N表示特定寄存器编好)，将内容复制到特定的剪切板，那么我们的目的是要复制到系统剪切板则需要选中内容后输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;+y		#该命令将内容复制到系统剪贴板</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置快捷键">设置快捷键</h2>
+<p>通过<code>vim ~/.vimrc</code>, 编辑快捷键，一般在visual模式下才会复制，所以只需要进行vmap就可以了。有人喜欢用<code>ctrl+c/v</code>进行复制粘贴，但是与原有的ctrl+v冲突，故而采用leader+c/v的形式进行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let mapleader=&quot;,&quot; </span><br><span class="line"></span><br><span class="line">&quot;复制粘贴</span><br><span class="line">vmap &lt;leader&gt;v &quot;+gp  &quot;粘贴并使光标移动到内容之后</span><br><span class="line">vmap &lt;leader&gt;c &quot;+y   &quot;复制到系统剪贴板</span><br></pre></td></tr></table></figure>
+
+<p>好了，问题解决，可以正常进行复制粘贴了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://kingrumn.github.io/2018/04/26/cv-yolo-install-ubuntu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KingRumn">
@@ -1007,7 +1163,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/26/linux-ubuntu-howto/">
+    <link itemprop="mainEntityOfPage" href="http://kingrumn.github.io/2018/04/26/linux-ubuntu-howto/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KingRumn">
@@ -1155,6 +1311,220 @@
 <h2 id="激活">激活</h2>
 <p>help &gt;&gt; enter Licence <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Nicolas Hennion</span><br><span class="line">Single User License</span><br><span class="line">EA7E-866075</span><br><span class="line">8A01AA83 1D668D24 4484AEBC 3B04512C</span><br><span class="line">827B0DE5 69E9B07A A39ACCC0 F95F5410</span><br><span class="line">729D5639 4C37CECB B2522FB3 8D37FDC1</span><br><span class="line">72899363 BBA441AC A5F47F08 6CD3B3FE</span><br><span class="line">CEFB3783 B2E1BA96 71AAF7B4 AFB61B1D</span><br><span class="line">0CC513E7 52FF2333 9F726D2C CDE53B4A</span><br><span class="line">810C0D4F E1F419A3 CDA0832B 8440565A</span><br><span class="line">35BF00F6 4CA9F869 ED10E245 469C233E</span><br></pre></td></tr></table></figure></p>
 <p>以上激活码可用</p>
+<h1 id="typora-安装">Typora 安装</h1>
+<p>typora 是当前非常通用的markdown编辑软件，官网<code>https://typora.io</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># optional, but recommended</span><br><span class="line">$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE</span><br><span class="line"></span><br><span class="line"># add Typora&apos;s repository</span><br><span class="line">$ sudo add-apt-repository &apos;deb https://typora.io linux/&apos;</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"># install typora</span><br><span class="line">$ sudo apt-get install typora</span><br></pre></td></tr></table></figure>
+
+<p>PS： remarkble这个软件就是个shit，千万不要用</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://kingrumn.github.io/2018/04/26/linux-hexo-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KingRumn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KingRumn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/26/linux-hexo-guide/" itemprop="url">Ubuntu hexo安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-25T20:37:00Z">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="背景">背景</h1>
+<p>各种各样的博客五花八门，但是利用<code>github</code>构建个人看起来很有逼格，在其他地方积累的并不多，因此花了2天的时间研究了一下如何依靠github构建个人博客。 - 主流的个人博客工具包括<code>hexo</code>，<code>jekyll</code>，<code>wordpress</code>等，具体的优劣建议参考：<code>https://www.jianshu.com/p/c4f145fdd637</code> - 个人最终选择了<code>git + github + hexo</code>的方案，主要是命令少，易于学习。</p>
+<h1 id="安装git">安装git</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 安装</span><br><span class="line">$ sudo apt-get install git</span><br><span class="line"># 配置账户</span><br><span class="line">$git config --global user.name &quot;your username&quot; </span><br><span class="line">$git config --global user.email &quot;your_email@youremail.com&quot;</span><br><span class="line">$ssh-keygen -t rsa -C &quot;youremail@email.com&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="创建github-pages">创建github pages</h1>
+<ol style="list-style-type: decimal">
+<li><p>注册账户 如果你还没有<code>github</code>的账号，去注册一个吧（<code>https://github.com/join?source=header-home</code>），一个有逼格的程序员，这是必须的</p></li>
+<li>创建github pages</li>
+</ol>
+<ul>
+<li>登录（<code>https://github.com</code>）</li>
+<li>找到<code>Start a project</code>或者<code>New repository</code>创建个项目 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yourname/yourname.github.io	</span><br><span class="line"># 这个地址必须严格按这个写，错了是无法访问的</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>Notice</strong>: <code>yourname</code>必须是你注册时的用户名，如果你忘记了，去点下你的头像，下拉出来的<code>Signed in as</code>后面就是你的名字</p>
+<ol start="3" style="list-style-type: decimal">
+<li>书写第一个主页</li>
+</ol>
+<ul>
+<li><p>pull代码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd yourworkdir 	#yourworkdir是工作目录</span><br><span class="line">$ git clone https://github.com/yourname/yourname.github.io</span><br><span class="line">$ cd yourname.github.io</span><br><span class="line">$ touch index.htm	# 创建默认页面</span><br></pre></td></tr></table></figure></p></li>
+<li><p>创建页面 通过vim或gedit编辑<code>index.htm</code>并输入以下内容 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;My Blog&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;Hello，world！&lt;/p&gt;</span><br><span class="line">&lt;p&gt;This is my first blog. &lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>上传代码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m &quot;创建我的第一个页面&quot;</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<p>后续一般需要输入用户名（yourname）和密码（登录密码）</p>
+<ol start="4" style="list-style-type: decimal">
+<li>访问页面 创建成功后，通过<code>https://yourname.github.io</code>即可访问刚才书写的页面</li>
+</ol>
+<p>这样你的个人博客已经可以访问了，如果你已经可以自己构建个网站结构，那就直接开搞吧，不过作为看这个教程的人，一般都需要去寻找一个现成的搭建博客的方案，比如<code>hexo</code>,<code>jekyll</code>等，下面先介绍<code>hexo</code>的使用过程。</p>
+<h1 id="安装hexo">安装hexo</h1>
+<ol style="list-style-type: decimal">
+<li>安装nodejs 不建议使用apt-get方式安装，容易失败； 建议使用nvm工具进行安装（nvm是一个可以让你在同一台机器上安装和切换不同版本node的工具） 使用如下命令进行安装： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot; &amp;&amp; (</span><br><span class="line">  git clone https://github.com/creationix/nvm.git &quot;$NVM_DIR&quot;</span><br><span class="line">  cd &quot;$NVM_DIR&quot;</span><br><span class="line">  git checkout `git describe --abbrev=0 --tags --match &quot;v[0-9]*&quot; origin`</span><br><span class="line">) &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>使nvm开机启动，将如下内容添加到<code>~/.bashrc</code>中： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</span><br><span class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></p>
+<p>重启 <code>terminal</code>或者重新<code>source</code>一下 <code>~/.bashrc</code>； 执行以下命令： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$nvm ls-remote //列出所有安装包的版本信息</span><br><span class="line">$nvm install stable //安装最稳定版本</span><br><span class="line">$nvm use node //使用当前版本</span><br><span class="line">$nvm run node --version //也可以使用该命令 使用当前版本</span><br><span class="line">$nvm alias default node //设置默认版本</span><br></pre></td></tr></table></figure></p>
+<p>如果需要更新则手动更新 nvm: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line"> cd &quot;$NVM_DIR&quot;</span><br><span class="line"> git fetch origin</span><br><span class="line"> git checkout `git describe --abbrev=0 --tags --match &quot;v[0-9]*&quot; origin`</span><br><span class="line">) &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></p>
+<ol start="2" style="list-style-type: decimal">
+<li>安装hexo <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$npm install  hexo-cli -g</span><br><span class="line">$npm install hexo-server -g</span><br><span class="line">$npm install hexo-deployer-git -g</span><br><span class="line">$npm install hexo-util -g</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>接下来建立博客目录，并初始化： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd yourworkdir</span><br><span class="line">$ mkdir yourblogdir</span><br><span class="line">$ cd yourblogdir</span><br><span class="line">$ hexo init //初始化 下载必要的建站文件</span><br><span class="line">$ npm install //安装依赖项</span><br></pre></td></tr></table></figure></p>
+<p>接下来就可以开始博客的撰写了。</p>
+<h1 id="撰写博客">撰写博客</h1>
+<p>由于创建站点的时候，已经包含了一个<code>hello-world</code>的基础页面，所以不需要任何编辑，直接可以生成网站</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean # 清除缓存</span><br><span class="line">$ hexo g	# 生成页面</span><br><span class="line">$ hexo s	#运行本地服务</span><br></pre></td></tr></table></figure>
+
+<p>之后可以看到提示<code>hexo is running at http://localhost:4000/. Press ctrl+c to stop</code>，可见只需要在浏览器中输入<code>http://localhost:4000</code>即可看到页面，如果你不想运行了，直接Ctrl+c就可以了。</p>
+<h1 id="发布博客">发布博客</h1>
+<p>到现在为止，这些操作都还是在本地完成的，那么我们怎么才能把这些东西推送到github的个人页面上去呢？</p>
+<p>通过<code>hexo-deployer-git</code>神器即可完成操作</p>
+<ul>
+<li>安装<code>hexo-deployer-git</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置网站git</li>
+</ul>
+<p>在站点配置文件(yourblogdir/_config.yml)修改如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repo: &lt;your repository url&gt; #你的github上创建的yourname.github.io的仓库的地址</span><br><span class="line">	branch: [branch]	# 分支名称，可选的，默认时master分支</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>部署</li>
+</ul>
+<p>下面的命令可以实现一键部署，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<p>这时候，浏览器中输入<code>https://yourname.github.io</code>是不是可以看到自己的博客了呢，大功告成。</p>
+<h1 id="参考">参考</h1>
+<p><a href="http://stevenshi.me/2017/05/23/ubuntu-hexo/" target="_blank" rel="noopener">ubuntu 下 hexo 安装与配置</a> <a href="https://jekyllrb.com/" target="_blank" rel="noopener">jekyll</a> <a href="https://hexo.io/zh-cn" target="_blank" rel="noopener">hexo</a> <a href="https://pandoc.org/" target="_blank" rel="noopener">pandoc</a></p>
 
           
         
@@ -1236,7 +1606,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
