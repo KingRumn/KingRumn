@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11077939-ec680e8d2fc13fe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11077939-464422dd5d5fb957.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11077939-aa4f4b50a39f74d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-27T14:30:46.318Z">
+<meta property="og:updated_time" content="2018-04-28T01:45:14.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yolo安装（Ubuntu14.04）">
 <meta name="twitter:description" content="最近在同事的建议下想要学习一下深度学习的知识，作为环境搭建的第一步，配置Yolo环境。电脑不支持CUDA，该环境仅用来学习，故未对CUDA进行配置和支持。 在环境配置过程中也遇到一些问题，记录以作参考。 ## 经验总结 * 做一件事的时候，最基础的是去官网按照说明走一遍，往往这才是最官方的，也是最正确的，出了问题才去其他地方寻找答案 * 如果开源的代码出了问题，不妨先在Github上搜一搜看看有没">
@@ -286,7 +286,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-26T06:37:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T22:37:00Z">
                 2018-04-25
               </time>
             
@@ -349,10 +349,10 @@
         <p>最近在同事的建议下想要学习一下深度学习的知识，作为环境搭建的第一步，配置Yolo环境。电脑不支持CUDA，该环境仅用来学习，故未对CUDA进行配置和支持。 在环境配置过程中也遇到一些问题，记录以作参考。 ## 经验总结 * 做一件事的时候，最基础的是去官网按照说明走一遍，往往这才是最官方的，也是最正确的，出了问题才去其他地方寻找答案 * 如果开源的代码出了问题，不妨先在Github上搜一搜看看有没有人碰到</p>
 <h2 id="官方参考资料">官方参考资料</h2>
 <ul>
-<li>Yolo安装指南：https://pjreddie.com/darknet/install/</li>
-<li>Joseph Chet Redmon个人网站：https://pjreddie.com/</li>
-<li>OpenCV官网：https://opencv.org/</li>
-<li>OpenCV安装指南：https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html ## 安装OpenCV 当前（2018-3-20）下载的opencv的最新版本应该是3.4.1，下面的安装过程完整参考<strong>OpenCV安装指南</strong>中的说明，如无压力可直接跳过，如果OpenCV已经安装，也请跳过。 ### 检查需求 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GCC 4.4.x or later</span><br><span class="line">CMake 2.8.7 or higher</span><br><span class="line">Git</span><br><span class="line">GTK+2.x or higher, including headers (libgtk2.0-dev)</span><br><span class="line">pkg-config</span><br><span class="line">Python 2.6 or later and Numpy 1.5 or later with developer packages (python-dev, python-numpy)</span><br><span class="line">ffmpeg or libav development packages: libavcodec-dev, libavformat-dev, libswscale-dev</span><br><span class="line">[optional] libtbb2 libtbb-dev</span><br><span class="line">[optional] libdc1394 2.x</span><br><span class="line">[optional] libjpeg-dev, libpng-dev, libtiff-dev, libjasper-dev, libdc1394-22-dev</span><br><span class="line">[optional] CUDA Toolkit 6.5 or higher</span><br></pre></td></tr></table></figure></li>
+<li>Yolo安装指南：<code>https://pjreddie.com/darknet/install/</code></li>
+<li>Joseph Chet Redmon个人网站：<code>https://pjreddie.com/</code></li>
+<li>OpenCV官网：<code>https://opencv.org/</code></li>
+<li>OpenCV安装指南：<code>https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html</code> ## 安装OpenCV 当前（2018-3-20）下载的opencv的最新版本应该是3.4.1，下面的安装过程完整参考<strong>OpenCV安装指南</strong>中的说明，如无压力可直接跳过，如果OpenCV已经安装，也请跳过。 ### 检查需求 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GCC 4.4.x or later</span><br><span class="line">CMake 2.8.7 or higher</span><br><span class="line">Git</span><br><span class="line">GTK+2.x or higher, including headers (libgtk2.0-dev)</span><br><span class="line">pkg-config</span><br><span class="line">Python 2.6 or later and Numpy 1.5 or later with developer packages (python-dev, python-numpy)</span><br><span class="line">ffmpeg or libav development packages: libavcodec-dev, libavformat-dev, libswscale-dev</span><br><span class="line">[optional] libtbb2 libtbb-dev</span><br><span class="line">[optional] libdc1394 2.x</span><br><span class="line">[optional] libjpeg-dev, libpng-dev, libtiff-dev, libjasper-dev, libdc1394-22-dev</span><br><span class="line">[optional] CUDA Toolkit 6.5 or higher</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="安装相关工具">安装相关工具</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[compiler] $ sudo apt-get install build-essential</span><br><span class="line">[required] $ sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev</span><br><span class="line">[optional] $ sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev</span><br></pre></td></tr></table></figure>
@@ -524,7 +524,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -535,7 +535,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -598,7 +598,7 @@
 </div>
 
 
-  <div class="powered-by">版权所有 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> </div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 技术支持</div>
 
 
 
