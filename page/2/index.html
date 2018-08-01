@@ -259,6 +259,207 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://kingrumn.github.io/2018/04/26/linux-ubuntu-howto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KingRumn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KingRumn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/26/linux-ubuntu-howto/" itemprop="url">Ubuntu 使用记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T22:37:00Z">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">ubuntu</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>安装Ubuntu操作系统是个费事费力的活，把一些基本的记录放在这里，便于以后参考</p>
+<h1 id="背景">背景</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DISTRIB_ID=Ubuntu</span><br><span class="line">DISTRIB_RELEASE=16.04</span><br><span class="line">DISTRIB_CODENAME=xenial</span><br><span class="line">DISTRIB_DESCRIPTION=&quot;Ubuntu 16.04.4 LTS&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="切换软件源">切换软件源</h1>
+<ul>
+<li><p>备份并替换/etc/apt/sources.list的源内容(/etc/apt/sources.list)： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /etc/apt</span><br><span class="line">$ sudo mv sources.list sources.list.bak</span><br><span class="line">$ sudo vi sources.list</span><br></pre></td></tr></table></figure></p></li>
+<li><p>将下面的内容复制到文件中，并保存 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">##测试版源</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"># 源码</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">##测试版源</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"># Canonical 合作伙伴和附加</span><br><span class="line">deb http://archive.canonical.com/ubuntu/ xenial partner</span><br><span class="line">deb http://extras.ubuntu.com/ubuntu/ xenial main</span><br></pre></td></tr></table></figure></p></li>
+<li><p>主动更新一下程序 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h1 id="安装搜狗输入法">安装搜狗输入法</h1>
+<p>基本上分三步走 - 添加fcitx的键盘输入法系统，因为sogou是基于fcitx的，而系统默认的是iBus； - 安装sogou输入法； - 设置系统参数及一些注意点。</p>
+<h2 id="添加fcitx键盘输入法系统">添加fcitx键盘输入法系统</h2>
+<ul>
+<li><p>先添加以下源 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:fcitx-team/nightly</span><br></pre></td></tr></table></figure></p></li>
+<li><p>添加源之后需要更新一下系统 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p></li>
+<li><p>开始安装fcitx <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx</span><br></pre></td></tr></table></figure></p></li>
+<li><p>接着安装fcitx的配置工具 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx-config-gtk</span><br></pre></td></tr></table></figure></p></li>
+<li><p>然后安装fcitx的table-all软件包 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx-table-all</span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装im-switch切换工具 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install im-switch</span><br></pre></td></tr></table></figure></p></li>
+<li><p>看看我们的fcitx是否安装完成 搜索fcitx查看是否有安装成功,其实fcitx只是一个输入法工具,本身不带资源包的,所以Ubuntu下安装搜狗输入法，需要我们自己来下载搜狗输入法的资源包。</p></li>
+</ul>
+<h2 id="安装sogou输入法">安装sogou输入法</h2>
+<ul>
+<li>选择你操作系统的版本下载就可以了<code>https://pinyin.sogou.com/linux/?r=pinyin</code></li>
+<li>用dpkg命令来安装搜狗输入法资源包，出现错误可暂时不用管</li>
+</ul>
+<h2 id="设置语言选项">设置语言选项</h2>
+<ul>
+<li>到系统设置-&gt;语言支持，将键盘输入法系统由默认的iBus设置为fcitx</li>
+<li>这个时候是看不到效果的，一定要注销一次</li>
+<li>搜索出fcitx配置，将sogou输入法设为默认即可 sogou-qimpanel 命令是启动搜狗输入法的。</li>
+<li>如果还是切换不出输入法，那么执行下面的操作： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#配置Fcitx的环境:在~/.bashrc中加入一下内容</span><br><span class="line">export GTK_IM_MODULE=fcitx </span><br><span class="line">export QT_IM_MODULE=fcitx </span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="问题总结">问题总结</h2>
+<p>另外，在安装过程中遇到好几次这个问题，在网上查找到方法解决掉了，总结一下：</p>
+<ul>
+<li>Could not get lock /var/lib/dpkg/lock 通过终端安装程序sudo apt-get install xxx时出错： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>出现这个问题可能是有另外一个程序正在运行，导致资源被锁不可用。而导致资源被锁的原因可能是上次运行安装或更新时没有正常完成，进而出现此状况，解决的办法其实很简单： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#在终端中敲入以下两句</span><br><span class="line">$ sudo rm /var/cache/apt/archives/lock</span><br><span class="line">$ sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure></p>
+<p>再试着安装，问题解决。</p>
+<h1 id="修改dnsserver">修改DNSserver</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/resolvconf/resolv.conf.d/base</span><br></pre></td></tr></table></figure>
+
+<p>修改内容： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">search localdomain #如果本Server为DNS服务器，可以加上这一句，如果不是，可以不加</span><br><span class="line">nameserver 8.8.8.8 #希望修改成的DNS</span><br><span class="line">nameserver 114.114.114.114 #希望修改成的DNS</span><br></pre></td></tr></table></figure></p>
+<p>保存退出，重启网络： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /etc/init.d/networking restart</span><br></pre></td></tr></table></figure></p>
+<p>查看当前DNS： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/resolv.conf</span><br></pre></td></tr></table></figure></p>
+<h1 id="sublime-安装及激活">Sublime 安装及激活</h1>
+<h2 id="安装">安装</h2>
+<p>到官方网站上(<code>http://www.sublimetext.com/3</code>)下载64位（系统位64位）的.deb安装包（<code>http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb</code>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb</span><br><span class="line">$ sudo dpkg -i sublime-text_build-3059_amd64.deb</span><br></pre></td></tr></table></figure>
+
+<h2 id="激活">激活</h2>
+<p>help &gt;&gt; enter Licence <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Nicolas Hennion</span><br><span class="line">Single User License</span><br><span class="line">EA7E-866075</span><br><span class="line">8A01AA83 1D668D24 4484AEBC 3B04512C</span><br><span class="line">827B0DE5 69E9B07A A39ACCC0 F95F5410</span><br><span class="line">729D5639 4C37CECB B2522FB3 8D37FDC1</span><br><span class="line">72899363 BBA441AC A5F47F08 6CD3B3FE</span><br><span class="line">CEFB3783 B2E1BA96 71AAF7B4 AFB61B1D</span><br><span class="line">0CC513E7 52FF2333 9F726D2C CDE53B4A</span><br><span class="line">810C0D4F E1F419A3 CDA0832B 8440565A</span><br><span class="line">35BF00F6 4CA9F869 ED10E245 469C233E</span><br></pre></td></tr></table></figure></p>
+<p>以上激活码可用</p>
+<h1 id="typora-安装">Typora 安装</h1>
+<p>typora 是当前非常通用的markdown编辑软件，官网<code>https://typora.io</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># optional, but recommended</span><br><span class="line">$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE</span><br><span class="line"></span><br><span class="line"># add Typora&apos;s repository</span><br><span class="line">$ sudo add-apt-repository &apos;deb https://typora.io linux/&apos;</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"># install typora</span><br><span class="line">$ sudo apt-get install typora</span><br></pre></td></tr></table></figure>
+
+<p>PS： remarkble这个软件就是个shit，千万不要用</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://kingrumn.github.io/2018/04/26/cv-yolo-install-ubuntu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -706,7 +907,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
