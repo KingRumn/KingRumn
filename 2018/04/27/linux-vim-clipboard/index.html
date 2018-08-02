@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="KingRumn">
 <meta property="og:description" content="问题背景 VIM使用过程中需要将内容直接复制到系统剪贴板，使用场景：  在vim编辑过程中，需要将某些内容直接复制，并粘贴到博客或gedit中； 在2个窗口中分别用vim编辑，此时无法通过vim操作完成，只能借助系统剪贴板  解决方案 判断支持性 首先需要检查vim是否支持系统剪贴板 12$ vim --version | grep &amp;quot;clipboard&amp;quot;&amp;gt; -clipb">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-05-24T14:11:29.821Z">
+<meta property="og:updated_time" content="2018-08-02T07:22:38.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim复制内容到剪贴板">
 <meta name="twitter:description" content="问题背景 VIM使用过程中需要将内容直接复制到系统剪贴板，使用场景：  在vim编辑过程中，需要将某些内容直接复制，并粘贴到博客或gedit中； 在2个窗口中分别用vim编辑，此时无法通过vim操作完成，只能借助系统剪贴板  解决方案 判断支持性 首先需要检查vim是否支持系统剪贴板 12$ vim --version | grep &amp;quot;clipboard&amp;quot;&amp;gt; -clipb">
@@ -388,6 +388,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let mapleader=&quot;,&quot; </span><br><span class="line"></span><br><span class="line">&quot;复制粘贴</span><br><span class="line">vmap &lt;leader&gt;v &quot;+gp  &quot;粘贴并使光标移动到内容之后</span><br><span class="line">vmap &lt;leader&gt;c &quot;+y   &quot;复制到系统剪贴板</span><br></pre></td></tr></table></figure>
 
 <p>好了，问题解决，可以正常进行复制粘贴了。</p>
+<p>更多更及时的博客更新请戳---&gt; <a href="http://zm913.xyz" title="KingRumn的Blog" target="_blank" rel="noopener">KingRumn</a></p>
 
       
     </div>
