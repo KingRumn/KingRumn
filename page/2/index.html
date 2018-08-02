@@ -259,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://kingrumn.github.io/2018/04/26/linux-ubuntu-howto/">
+    <link itemprop="mainEntityOfPage" href="http://kingrumn.github.io/2018/04/27/linux-tmux-howto/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KingRumn">
@@ -278,7 +278,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/26/linux-ubuntu-howto/" itemprop="url">Ubuntu 使用记录</a></h1>
+                <a class="post-title-link" href="/2018/04/27/linux-tmux-howto/" itemprop="url">tmux安装与配置（Ubuntu）</a></h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T22:37:00Z">
-                2018-04-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T04:37:00Z">
+                2018-04-27
               </time>
             
 
@@ -352,66 +352,197 @@
       
         
           
-            <p>安装Ubuntu操作系统是个费事费力的活，把一些基本的记录放在这里，便于以后参考</p>
-<h1 id="背景">背景</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DISTRIB_ID=Ubuntu</span><br><span class="line">DISTRIB_RELEASE=16.04</span><br><span class="line">DISTRIB_CODENAME=xenial</span><br><span class="line">DISTRIB_DESCRIPTION=&quot;Ubuntu 16.04.4 LTS&quot;</span><br></pre></td></tr></table></figure>
+            <p>tmux 是当前为止最好用的多窗口管理神器</p>
+<h1 id="安装">安装</h1>
+<ul>
+<li>工具安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install tmux</span><br></pre></td></tr></table></figure>
 
-<h1 id="切换软件源">切换软件源</h1>
 <ul>
-<li><p>备份并替换/etc/apt/sources.list的源内容(/etc/apt/sources.list)： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /etc/apt</span><br><span class="line">$ sudo mv sources.list sources.list.bak</span><br><span class="line">$ sudo vi sources.list</span><br></pre></td></tr></table></figure></p></li>
-<li><p>将下面的内容复制到文件中，并保存 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">##测试版源</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"># 源码</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">##测试版源</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"># Canonical 合作伙伴和附加</span><br><span class="line">deb http://archive.canonical.com/ubuntu/ xenial partner</span><br><span class="line">deb http://extras.ubuntu.com/ubuntu/ xenial main</span><br></pre></td></tr></table></figure></p></li>
-<li><p>主动更新一下程序 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p></li>
+<li>源码安装</li>
 </ul>
-<h1 id="安装搜狗输入法">安装搜狗输入法</h1>
-<p>基本上分三步走 - 添加fcitx的键盘输入法系统，因为sogou是基于fcitx的，而系统默认的是iBus； - 安装sogou输入法； - 设置系统参数及一些注意点。</p>
-<h2 id="添加fcitx键盘输入法系统">添加fcitx键盘输入法系统</h2>
-<ul>
-<li><p>先添加以下源 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:fcitx-team/nightly</span><br></pre></td></tr></table></figure></p></li>
-<li><p>添加源之后需要更新一下系统 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p></li>
-<li><p>开始安装fcitx <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx</span><br></pre></td></tr></table></figure></p></li>
-<li><p>接着安装fcitx的配置工具 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx-config-gtk</span><br></pre></td></tr></table></figure></p></li>
-<li><p>然后安装fcitx的table-all软件包 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx-table-all</span><br></pre></td></tr></table></figure></p></li>
-<li><p>安装im-switch切换工具 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install im-switch</span><br></pre></td></tr></table></figure></p></li>
-<li><p>看看我们的fcitx是否安装完成 搜索fcitx查看是否有安装成功,其实fcitx只是一个输入法工具,本身不带资源包的,所以Ubuntu下安装搜狗输入法，需要我们自己来下载搜狗输入法的资源包。</p></li>
-</ul>
-<h2 id="安装sogou输入法">安装sogou输入法</h2>
-<ul>
-<li>选择你操作系统的版本下载就可以了<code>https://pinyin.sogou.com/linux/?r=pinyin</code></li>
-<li>用dpkg命令来安装搜狗输入法资源包，出现错误可暂时不用管</li>
-</ul>
-<h2 id="设置语言选项">设置语言选项</h2>
-<ul>
-<li>到系统设置-&gt;语言支持，将键盘输入法系统由默认的iBus设置为fcitx</li>
-<li>这个时候是看不到效果的，一定要注销一次</li>
-<li>搜索出fcitx配置，将sogou输入法设为默认即可 sogou-qimpanel 命令是启动搜狗输入法的。</li>
-<li>如果还是切换不出输入法，那么执行下面的操作： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#配置Fcitx的环境:在~/.bashrc中加入一下内容</span><br><span class="line">export GTK_IM_MODULE=fcitx </span><br><span class="line">export QT_IM_MODULE=fcitx </span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="问题总结">问题总结</h2>
-<p>另外，在安装过程中遇到好几次这个问题，在网上查找到方法解决掉了，总结一下：</p>
-<ul>
-<li>Could not get lock /var/lib/dpkg/lock 通过终端安装程序sudo apt-get install xxx时出错： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>出现这个问题可能是有另外一个程序正在运行，导致资源被锁不可用。而导致资源被锁的原因可能是上次运行安装或更新时没有正常完成，进而出现此状况，解决的办法其实很简单： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#在终端中敲入以下两句</span><br><span class="line">$ sudo rm /var/cache/apt/archives/lock</span><br><span class="line">$ sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure></p>
-<p>再试着安装，问题解决。</p>
-<h1 id="修改dnsserver">修改DNSserver</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/resolvconf/resolv.conf.d/base</span><br></pre></td></tr></table></figure>
+<p>To do</p>
+<h1 id="配置">配置</h1>
+<p>tmux的配置文件包括<code>tmux.conf</code> , <code>.tmux.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.tmux.conf</span><br></pre></td></tr></table></figure>
 
-<p>修改内容： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">search localdomain #如果本Server为DNS服务器，可以加上这一句，如果不是，可以不加</span><br><span class="line">nameserver 8.8.8.8 #希望修改成的DNS</span><br><span class="line">nameserver 114.114.114.114 #希望修改成的DNS</span><br></pre></td></tr></table></figure></p>
-<p>保存退出，重启网络： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /etc/init.d/networking restart</span><br></pre></td></tr></table></figure></p>
-<p>查看当前DNS： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/resolv.conf</span><br></pre></td></tr></table></figure></p>
-<h1 id="sublime-安装及激活">Sublime 安装及激活</h1>
-<h2 id="安装">安装</h2>
-<p>到官方网站上(<code>http://www.sublimetext.com/3</code>)下载64位（系统位64位）的.deb安装包（<code>http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb</code>）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb</span><br><span class="line">$ sudo dpkg -i sublime-text_build-3059_amd64.deb</span><br></pre></td></tr></table></figure>
+<p>暂时可使用如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">#  </span><br><span class="line"># author   :  </span><br><span class="line"># modified :   </span><br><span class="line">#  </span><br><span class="line">  </span><br><span class="line">#-- base settings --#  </span><br><span class="line">set -g default-terminal &quot;xterm-256color&quot;  </span><br><span class="line">set -g display-time 3000  </span><br><span class="line">set -g escape-time 0  </span><br><span class="line">set -g history-limit 65535  </span><br><span class="line">set -g base-index 1  </span><br><span class="line">set -g pane-base-index 1  </span><br><span class="line">  </span><br><span class="line">#-- bindkeys --#  </span><br><span class="line"># prefix key (Ctrl+a)  </span><br><span class="line">set -g prefix ^a  </span><br><span class="line">unbind ^b  </span><br><span class="line">bind a send-prefix  </span><br><span class="line">  </span><br><span class="line"># split window  </span><br><span class="line">unbind &apos;&quot;&apos;  </span><br><span class="line">#bind - splitw -v # vertical split (prefix -)  </span><br><span class="line">bind-key s split-window -v  </span><br><span class="line">unbind %  </span><br><span class="line">#bind | splitw -h # horizontal split (prefix |)  </span><br><span class="line">bind-key v split-window -h  </span><br><span class="line">  </span><br><span class="line">bind C-l send-keys &apos;C-l&apos;  </span><br><span class="line">  </span><br><span class="line"># select pane  </span><br><span class="line">bind k selectp -U # above (prefix k)  </span><br><span class="line">bind j selectp -D # below (prefix j)  </span><br><span class="line">bind h selectp -L # left (prefix h)  </span><br><span class="line">bind l selectp -R # right (prefix l)  </span><br><span class="line">  </span><br><span class="line"># resize pane  </span><br><span class="line">#bind -r ^k resizep -U 10 # upward (prefix Ctrl+k)  </span><br><span class="line">#bind -r ^j resizep -D 10 # downward (prefix Ctrl+j)  </span><br><span class="line">#bind -r ^h resizep -L 10 # to the left (prefix Ctrl+h)  </span><br><span class="line">#bind -r ^l resizep -R 10 # to the right (prefix Ctrl+l)  </span><br><span class="line">  </span><br><span class="line"># Smart pane switching with awareness of vim splits  </span><br><span class="line">bind -n C-h run &quot;(tmux display-message -p &apos;#&#123;pane_current_command&#125;&apos; | grep -iqE &apos;(^|\/)vim(diff)?$&apos; &amp;&amp; tmux send-keys C-h) || tmux select-pane -L&quot;  </span><br><span class="line">bind -n C-j run &quot;(tmux display-message -p &apos;#&#123;pane_current_command&#125;&apos; | grep -iqE &apos;(^|\/)vim(diff)?$&apos; &amp;&amp; tmux send-keys C-j) || tmux select-pane -D&quot;  </span><br><span class="line">bind -n C-k run &quot;(tmux display-message -p &apos;#&#123;pane_current_command&#125;&apos; | grep -iqE &apos;(^|\/)vim(diff)?$&apos; &amp;&amp; tmux send-keys C-k) || tmux select-pane -U&quot;  </span><br><span class="line">bind -n C-l run &quot;(tmux display-message -p &apos;#&#123;pane_current_command&#125;&apos; | grep -iqE &apos;(^|\/)vim(diff)?$&apos; &amp;&amp; tmux send-keys C-l) || tmux select-pane -R&quot;  </span><br><span class="line">bind -n C-\ run &quot;(tmux display-message -p &apos;#&#123;pane_current_command&#125;&apos; | grep -iqE &apos;(^|\/)vim(diff)?$&apos; &amp;&amp; tmux send-keys &apos;C-\\&apos;) || tmux select-pane -l&quot;  </span><br><span class="line">bind C-l send-keys &apos;C-l&apos;  </span><br><span class="line">  </span><br><span class="line"># swap pane  </span><br><span class="line">bind ^u swapp -U # swap with the previous pane (prefix Ctrl+u)  </span><br><span class="line">bind ^d swapp -D # swap with the next pane (prefix Ctrl+d)  </span><br><span class="line">  </span><br><span class="line"># misc  </span><br><span class="line">bind e lastp  # select the last pane (prefix e)  </span><br><span class="line">bind ^e last  # select the last window (prefix Ctrl+e)  </span><br><span class="line">bind q killp  # kill pane (prefix q)  </span><br><span class="line">bind ^q killw # kill window (prefix Ctrl+q)  </span><br><span class="line">  </span><br><span class="line"># copy mode  </span><br><span class="line">#bind Escape copy-mode             # enter copy mode (prefix Escape)  </span><br><span class="line">#bind ^p pasteb                    # paste buffer (prefix Ctrl+p)  </span><br><span class="line">bind -t vi-copy v begin-selection # select (v)  </span><br><span class="line">bind -t vi-copy y copy-selection  # copy (y)  </span><br><span class="line">  </span><br><span class="line"># app  </span><br><span class="line">bind ! splitw htop                                     # htop (prefix !)  </span><br><span class="line">bind m command-prompt &quot;splitw &apos;exec man %%&apos;&quot;           # man (prefix m)  </span><br><span class="line">bind @ command-prompt &quot;splitw &apos;exec perldoc -t -f %%&apos;&quot; # perl func (prefix @)  </span><br><span class="line">bind * command-prompt &quot;splitw &apos;exec perldoc -t -v %%&apos;&quot; # perl var (prefix *)  </span><br><span class="line">bind % command-prompt &quot;splitw &apos;exec perldoc -t %%&apos;&quot;    # perl doc (prefix %)  </span><br><span class="line">bind / command-prompt &quot;splitw &apos;exec ri %%&apos;&quot;            # ruby doc (prefix /)  </span><br><span class="line">  </span><br><span class="line"># reload config (prefix r)  </span><br><span class="line">bind r source ~/.tmux.conf \; display &quot;Configuration reloaded!&quot;  </span><br><span class="line">  </span><br><span class="line">#-- statusbar --#  </span><br><span class="line">set -g status-utf8 on  </span><br><span class="line">set -g status-interval 1  </span><br><span class="line">set -g status-keys vi  </span><br><span class="line">  </span><br><span class="line">setw -g mode-keys vi  </span><br><span class="line">setw -g automatic-rename off  </span><br><span class="line">  </span><br><span class="line">#-- colorscheme --#  </span><br><span class="line"># see also: https://github.com/daethorian/conf-tmux/blob/master/colors/zenburn.conf  </span><br><span class="line">  </span><br><span class="line"># modes  </span><br><span class="line">setw -g clock-mode-colour colour223  </span><br><span class="line">setw -g mode-attr bold  </span><br><span class="line">setw -g mode-fg colour223  </span><br><span class="line">setw -g mode-bg colour235  </span><br><span class="line">  </span><br><span class="line"># panes  </span><br><span class="line">set -g pane-border-bg colour234  </span><br><span class="line">set -g pane-border-fg colour234  </span><br><span class="line">set -g pane-active-border-bg colour232  </span><br><span class="line">set -g pane-active-border-fg colour232  </span><br><span class="line">  </span><br><span class="line"># statusbar  </span><br><span class="line">set -g status-justify centre  </span><br><span class="line">set -g status-bg colour235  </span><br><span class="line">set -g status-fg colour248  </span><br><span class="line">set -g status-attr dim  </span><br><span class="line">set -g status-left &quot;#[default]» #[fg=colour187]#S #[default]• #[fg=colour187]w#I.p#P#[default]&quot;  </span><br><span class="line">set -g status-left-attr bright  </span><br><span class="line">set -g status-left-length 20  </span><br><span class="line">set -g status-right &quot;#[fg=colour174]#(/home/xiaodong/bin/uptime) #[default]• #[fg=colour174]#(cut -d &apos; &apos; -f 1-3 /proc/loadavg)&quot;  </span><br><span class="line">set -g status-right-attr bright  </span><br><span class="line">set -g status-right-length 80  </span><br><span class="line">  </span><br><span class="line">setw -g window-status-current-fg colour223  </span><br><span class="line">setw -g window-status-current-bg colour237  </span><br><span class="line">setw -g window-status-current-attr bold  </span><br><span class="line">setw -g window-status-current-format &quot;#I:#W#F&quot;  </span><br><span class="line">  </span><br><span class="line">#setw -g window-status-alert-attr bold  </span><br><span class="line">#setw -g window-status-alert-fg colour255  </span><br><span class="line">#setw -g window-status-alert-bg colour160  </span><br><span class="line">  </span><br><span class="line"># messages  </span><br><span class="line">set -g message-attr bold  </span><br><span class="line">set -g message-fg colour223  </span><br><span class="line">set -g message-bg colour235  </span><br><span class="line"></span><br><span class="line"># mouse</span><br><span class="line">set-option -g mouse on</span><br></pre></td></tr></table></figure>
 
-<h2 id="激活">激活</h2>
-<p>help &gt;&gt; enter Licence <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Nicolas Hennion</span><br><span class="line">Single User License</span><br><span class="line">EA7E-866075</span><br><span class="line">8A01AA83 1D668D24 4484AEBC 3B04512C</span><br><span class="line">827B0DE5 69E9B07A A39ACCC0 F95F5410</span><br><span class="line">729D5639 4C37CECB B2522FB3 8D37FDC1</span><br><span class="line">72899363 BBA441AC A5F47F08 6CD3B3FE</span><br><span class="line">CEFB3783 B2E1BA96 71AAF7B4 AFB61B1D</span><br><span class="line">0CC513E7 52FF2333 9F726D2C CDE53B4A</span><br><span class="line">810C0D4F E1F419A3 CDA0832B 8440565A</span><br><span class="line">35BF00F6 4CA9F869 ED10E245 469C233E</span><br></pre></td></tr></table></figure></p>
-<p>以上激活码可用</p>
-<h1 id="typora-安装">Typora 安装</h1>
-<p>typora 是当前非常通用的markdown编辑软件，官网<code>https://typora.io</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># optional, but recommended</span><br><span class="line">$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE</span><br><span class="line"></span><br><span class="line"># add Typora&apos;s repository</span><br><span class="line">$ sudo add-apt-repository &apos;deb https://typora.io linux/&apos;</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"># install typora</span><br><span class="line">$ sudo apt-get install typora</span><br></pre></td></tr></table></figure>
+<p>更多更及时的博客更新请戳---&gt; <a href="http://zm913.xyz" title="KingRumn的Blog" target="_blank" rel="noopener">KingRumn</a></p>
 
-<p>PS： remarkble这个软件就是个shit，千万不要用</p>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://kingrumn.github.io/2018/04/27/linux-vim-clipboard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KingRumn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KingRumn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/27/linux-vim-clipboard/" itemprop="url">vim复制内容到剪贴板</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T04:00:34Z">
+                2018-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">ubuntu</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="问题背景">问题背景</h1>
+<p>VIM使用过程中需要将内容直接复制到系统剪贴板，使用场景：</p>
+<ol style="list-style-type: decimal">
+<li>在vim编辑过程中，需要将某些内容直接复制，并粘贴到博客或gedit中；</li>
+<li>在2个窗口中分别用vim编辑，此时无法通过vim操作完成，只能借助系统剪贴板</li>
+</ol>
+<h1 id="解决方案">解决方案</h1>
+<h2 id="判断支持性">判断支持性</h2>
+<p>首先需要检查vim是否支持系统剪贴板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim --version | grep &quot;clipboard&quot;</span><br><span class="line">&gt; -clipboard</span><br></pre></td></tr></table></figure>
+
+<p>如果<code>clipboard</code>前面有个<code>-</code> ，则说明vim并不支持系统剪贴板。</p>
+<h2 id="启用vim对剪贴板的支持">启用vim对剪贴板的支持</h2>
+<ul>
+<li>方案一：安装图形化界面vim</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install vim-gnome</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方案二：重新编译vim，并开启支持</li>
+</ul>
+<p>此时，重新检查，判断<code>-</code> 是否变成了<code>+</code>，如果是<code>+</code>说明已经支持了。</p>
+<h2 id="vim寄存器">vim寄存器</h2>
+<p>打开vim，输入<code>:reg</code>查看vim寄存器，当支持clipboard之后，会多出<code>&quot;+</code>寄存器，表示系统剪切板，在vim中进入visual视图后使用<code>&quot;Ny</code>(N表示特定寄存器编好)，将内容复制到特定的剪切板，那么我们的目的是要复制到系统剪切板则需要选中内容后输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;+y		#该命令将内容复制到系统剪贴板</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置快捷键">设置快捷键</h2>
+<p>通过<code>vim ~/.vimrc</code>, 编辑快捷键，一般在visual模式下才会复制，所以只需要进行vmap就可以了。有人喜欢用<code>ctrl+c/v</code>进行复制粘贴，但是与原有的ctrl+v冲突，故而采用leader+c/v的形式进行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let mapleader=&quot;,&quot; </span><br><span class="line"></span><br><span class="line">&quot;复制粘贴</span><br><span class="line">vmap &lt;leader&gt;v &quot;+gp  &quot;粘贴并使光标移动到内容之后</span><br><span class="line">vmap &lt;leader&gt;c &quot;+y   &quot;复制到系统剪贴板</span><br></pre></td></tr></table></figure>
+
+<p>好了，问题解决，可以正常进行复制粘贴了。</p>
 <p>更多更及时的博客更新请戳---&gt; <a href="http://zm913.xyz" title="KingRumn的Blog" target="_blank" rel="noopener">KingRumn</a></p>
 
           
@@ -614,6 +745,208 @@
 <p>在ubuntu下编译opencv程序后，执行报下面到错误： error while loading shared libraries: libopencv_core.so.2.4: cannot open shared object file: No such file or directory</p>
 <p>解决方法：找到libopencv_开头到库的目录，在/usr/local/lib下面，在/etc/ld.so.conf.d/下面新建一个opencv.conf，里面写入/usr/local/lib，最后执行下sudo ldconfig -v即可</p>
 <p>好了，写到这里，祝顺利。</p>
+<p>更多更及时的博客更新请戳---&gt; <a href="http://zm913.xyz" title="KingRumn的Blog" target="_blank" rel="noopener">KingRumn</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://kingrumn.github.io/2018/04/26/linux-ubuntu-howto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KingRumn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KingRumn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/26/linux-ubuntu-howto/" itemprop="url">Ubuntu 使用记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T22:37:00Z">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">ubuntu</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>安装Ubuntu操作系统是个费事费力的活，把一些基本的记录放在这里，便于以后参考</p>
+<h1 id="背景">背景</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DISTRIB_ID=Ubuntu</span><br><span class="line">DISTRIB_RELEASE=16.04</span><br><span class="line">DISTRIB_CODENAME=xenial</span><br><span class="line">DISTRIB_DESCRIPTION=&quot;Ubuntu 16.04.4 LTS&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="切换软件源">切换软件源</h1>
+<ul>
+<li><p>备份并替换/etc/apt/sources.list的源内容(/etc/apt/sources.list)： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /etc/apt</span><br><span class="line">$ sudo mv sources.list sources.list.bak</span><br><span class="line">$ sudo vi sources.list</span><br></pre></td></tr></table></figure></p></li>
+<li><p>将下面的内容复制到文件中，并保存 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">##测试版源</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"># 源码</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">##测试版源</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"># Canonical 合作伙伴和附加</span><br><span class="line">deb http://archive.canonical.com/ubuntu/ xenial partner</span><br><span class="line">deb http://extras.ubuntu.com/ubuntu/ xenial main</span><br></pre></td></tr></table></figure></p></li>
+<li><p>主动更新一下程序 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h1 id="安装搜狗输入法">安装搜狗输入法</h1>
+<p>基本上分三步走 - 添加fcitx的键盘输入法系统，因为sogou是基于fcitx的，而系统默认的是iBus； - 安装sogou输入法； - 设置系统参数及一些注意点。</p>
+<h2 id="添加fcitx键盘输入法系统">添加fcitx键盘输入法系统</h2>
+<ul>
+<li><p>先添加以下源 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:fcitx-team/nightly</span><br></pre></td></tr></table></figure></p></li>
+<li><p>添加源之后需要更新一下系统 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p></li>
+<li><p>开始安装fcitx <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx</span><br></pre></td></tr></table></figure></p></li>
+<li><p>接着安装fcitx的配置工具 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx-config-gtk</span><br></pre></td></tr></table></figure></p></li>
+<li><p>然后安装fcitx的table-all软件包 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fcitx-table-all</span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装im-switch切换工具 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install im-switch</span><br></pre></td></tr></table></figure></p></li>
+<li><p>看看我们的fcitx是否安装完成 搜索fcitx查看是否有安装成功,其实fcitx只是一个输入法工具,本身不带资源包的,所以Ubuntu下安装搜狗输入法，需要我们自己来下载搜狗输入法的资源包。</p></li>
+</ul>
+<h2 id="安装sogou输入法">安装sogou输入法</h2>
+<ul>
+<li>选择你操作系统的版本下载就可以了<code>https://pinyin.sogou.com/linux/?r=pinyin</code></li>
+<li>用dpkg命令来安装搜狗输入法资源包，出现错误可暂时不用管</li>
+</ul>
+<h2 id="设置语言选项">设置语言选项</h2>
+<ul>
+<li>到系统设置-&gt;语言支持，将键盘输入法系统由默认的iBus设置为fcitx</li>
+<li>这个时候是看不到效果的，一定要注销一次</li>
+<li>搜索出fcitx配置，将sogou输入法设为默认即可 sogou-qimpanel 命令是启动搜狗输入法的。</li>
+<li>如果还是切换不出输入法，那么执行下面的操作： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#配置Fcitx的环境:在~/.bashrc中加入一下内容</span><br><span class="line">export GTK_IM_MODULE=fcitx </span><br><span class="line">export QT_IM_MODULE=fcitx </span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="问题总结">问题总结</h2>
+<p>另外，在安装过程中遇到好几次这个问题，在网上查找到方法解决掉了，总结一下：</p>
+<ul>
+<li>Could not get lock /var/lib/dpkg/lock 通过终端安装程序sudo apt-get install xxx时出错： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>出现这个问题可能是有另外一个程序正在运行，导致资源被锁不可用。而导致资源被锁的原因可能是上次运行安装或更新时没有正常完成，进而出现此状况，解决的办法其实很简单： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#在终端中敲入以下两句</span><br><span class="line">$ sudo rm /var/cache/apt/archives/lock</span><br><span class="line">$ sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure></p>
+<p>再试着安装，问题解决。</p>
+<h1 id="修改dnsserver">修改DNSserver</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/resolvconf/resolv.conf.d/base</span><br></pre></td></tr></table></figure>
+
+<p>修改内容： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">search localdomain #如果本Server为DNS服务器，可以加上这一句，如果不是，可以不加</span><br><span class="line">nameserver 8.8.8.8 #希望修改成的DNS</span><br><span class="line">nameserver 114.114.114.114 #希望修改成的DNS</span><br></pre></td></tr></table></figure></p>
+<p>保存退出，重启网络： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /etc/init.d/networking restart</span><br></pre></td></tr></table></figure></p>
+<p>查看当前DNS： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/resolv.conf</span><br></pre></td></tr></table></figure></p>
+<h1 id="sublime-安装及激活">Sublime 安装及激活</h1>
+<h2 id="安装">安装</h2>
+<p>到官方网站上(<code>http://www.sublimetext.com/3</code>)下载64位（系统位64位）的.deb安装包（<code>http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb</code>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb</span><br><span class="line">$ sudo dpkg -i sublime-text_build-3059_amd64.deb</span><br></pre></td></tr></table></figure>
+
+<h2 id="激活">激活</h2>
+<p>help &gt;&gt; enter Licence <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Nicolas Hennion</span><br><span class="line">Single User License</span><br><span class="line">EA7E-866075</span><br><span class="line">8A01AA83 1D668D24 4484AEBC 3B04512C</span><br><span class="line">827B0DE5 69E9B07A A39ACCC0 F95F5410</span><br><span class="line">729D5639 4C37CECB B2522FB3 8D37FDC1</span><br><span class="line">72899363 BBA441AC A5F47F08 6CD3B3FE</span><br><span class="line">CEFB3783 B2E1BA96 71AAF7B4 AFB61B1D</span><br><span class="line">0CC513E7 52FF2333 9F726D2C CDE53B4A</span><br><span class="line">810C0D4F E1F419A3 CDA0832B 8440565A</span><br><span class="line">35BF00F6 4CA9F869 ED10E245 469C233E</span><br></pre></td></tr></table></figure></p>
+<p>以上激活码可用</p>
+<h1 id="typora-安装">Typora 安装</h1>
+<p>typora 是当前非常通用的markdown编辑软件，官网<code>https://typora.io</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># optional, but recommended</span><br><span class="line">$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE</span><br><span class="line"></span><br><span class="line"># add Typora&apos;s repository</span><br><span class="line">$ sudo add-apt-repository &apos;deb https://typora.io linux/&apos;</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"># install typora</span><br><span class="line">$ sudo apt-get install typora</span><br></pre></td></tr></table></figure>
+
+<p>PS： remarkble这个软件就是个shit，千万不要用</p>
 <p>更多更及时的博客更新请戳---&gt; <a href="http://zm913.xyz" title="KingRumn的Blog" target="_blank" rel="noopener">KingRumn</a></p>
 
           
@@ -910,7 +1243,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
