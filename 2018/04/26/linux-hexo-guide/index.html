@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="zh-cn">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo,linux,ubuntu," />
+  <meta name="keywords" content="linux,hexo,ubuntu," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="背景 各种各样的博客五花八门，但是利用github构建个人看起来很有逼格，在其他地方积累的并不多，因此花了2天的时间研究了一下如何依靠github构建个人博客。 - 主流的个人博客工具包括hexo，jekyll，wordpress等，具体的优劣建议参考：https://www.jianshu.com/p/c4f145fdd637 - 个人最终选择了git + github + hexo的方案，主要">
-<meta name="keywords" content="hexo,linux,ubuntu">
+<meta name="keywords" content="linux,hexo,ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu hexo 安装">
 <meta property="og:url" content="http://kingrumn.github.io/2018/04/26/linux-hexo-guide/index.html">
@@ -141,7 +141,7 @@
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -155,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,6 +227,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
           </a>
         </li>
       
@@ -361,9 +371,8 @@
 <p>各种各样的博客五花八门，但是利用<code>github</code>构建个人看起来很有逼格，在其他地方积累的并不多，因此花了2天的时间研究了一下如何依靠github构建个人博客。 - 主流的个人博客工具包括<code>hexo</code>，<code>jekyll</code>，<code>wordpress</code>等，具体的优劣建议参考：<code>https://www.jianshu.com/p/c4f145fdd637</code> - 个人最终选择了<code>git + github + hexo</code>的方案，主要是命令少，易于学习。</p>
 <h1 id="安装git">安装git</h1>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 安装</span><br><span class="line">$ sudo apt-get install git</span><br><span class="line"># 配置账户</span><br><span class="line">$git config --global user.name &quot;your username&quot; </span><br><span class="line">$git config --global user.email &quot;your_email@youremail.com&quot;</span><br><span class="line">$ssh-keygen -t rsa -C &quot;youremail@email.com&quot;</span><br></pre></td></tr></table></figure>
-
 <h1 id="创建github-pages">创建github pages</h1>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>注册账户 如果你还没有<code>github</code>的账号，去注册一个吧（<code>https://github.com/join?source=header-home</code>），一个有逼格的程序员，这是必须的</p></li>
 <li>创建github pages</li>
 </ol>
@@ -372,7 +381,7 @@
 <li>找到<code>Start a project</code>或者<code>New repository</code>创建个项目 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yourname/yourname.github.io	</span><br><span class="line"># 这个地址必须严格按这个写，错了是无法访问的</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p><strong>Notice</strong>: <code>yourname</code>必须是你注册时的用户名，如果你忘记了，去点下你的头像，下拉出来的<code>Signed in as</code>后面就是你的名字</p>
-<ol start="3" style="list-style-type: decimal">
+<ol start="3" type="1">
 <li>书写第一个主页</li>
 </ol>
 <ul>
@@ -381,18 +390,18 @@
 <li><p>上传代码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m &quot;创建我的第一个页面&quot;</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p></li>
 </ul>
 <p>后续一般需要输入用户名（yourname）和密码（登录密码）</p>
-<ol start="4" style="list-style-type: decimal">
+<ol start="4" type="1">
 <li>访问页面 创建成功后，通过<code>https://yourname.github.io</code>即可访问刚才书写的页面</li>
 </ol>
 <p>这样你的个人博客已经可以访问了，如果你已经可以自己构建个网站结构，那就直接开搞吧，不过作为看这个教程的人，一般都需要去寻找一个现成的搭建博客的方案，比如<code>hexo</code>,<code>jekyll</code>等，下面先介绍<code>hexo</code>的使用过程。</p>
 <h1 id="安装hexo">安装hexo</h1>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>安装nodejs 不建议使用apt-get方式安装，容易失败； 建议使用nvm工具进行安装（nvm是一个可以让你在同一台机器上安装和切换不同版本node的工具） 使用如下命令进行安装： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot; &amp;&amp; (</span><br><span class="line">  git clone https://github.com/creationix/nvm.git &quot;$NVM_DIR&quot;</span><br><span class="line">  cd &quot;$NVM_DIR&quot;</span><br><span class="line">  git checkout `git describe --abbrev=0 --tags --match &quot;v[0-9]*&quot; origin`</span><br><span class="line">) &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></li>
 </ol>
 <p>使nvm开机启动，将如下内容添加到<code>~/.bashrc</code>中： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</span><br><span class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></p>
 <p>重启 <code>terminal</code>或者重新<code>source</code>一下 <code>~/.bashrc</code>； 执行以下命令： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$nvm ls-remote //列出所有安装包的版本信息</span><br><span class="line">$nvm install stable //安装最稳定版本</span><br><span class="line">$nvm use node //使用当前版本</span><br><span class="line">$nvm run node --version //也可以使用该命令 使用当前版本</span><br><span class="line">$nvm alias default node //设置默认版本</span><br></pre></td></tr></table></figure></p>
 <p>如果需要更新则手动更新 nvm: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line"> cd &quot;$NVM_DIR&quot;</span><br><span class="line"> git fetch origin</span><br><span class="line"> git checkout `git describe --abbrev=0 --tags --match &quot;v[0-9]*&quot; origin`</span><br><span class="line">) &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure></p>
-<ol start="2" style="list-style-type: decimal">
+<ol start="2" type="1">
 <li>安装hexo <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$npm install  hexo-cli -g</span><br><span class="line">$npm install hexo-server -g</span><br><span class="line">$npm install hexo-deployer-git -g</span><br><span class="line">$npm install hexo-util -g</span><br></pre></td></tr></table></figure></li>
 </ol>
 <p>接下来建立博客目录，并初始化： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd yourworkdir</span><br><span class="line">$ mkdir yourblogdir</span><br><span class="line">$ cd yourblogdir</span><br><span class="line">$ hexo init //初始化 下载必要的建站文件</span><br><span class="line">$ npm install //安装依赖项</span><br></pre></td></tr></table></figure></p>
@@ -400,7 +409,6 @@
 <h1 id="撰写博客">撰写博客</h1>
 <p>由于创建站点的时候，已经包含了一个<code>hello-world</code>的基础页面，所以不需要任何编辑，直接可以生成网站</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean # 清除缓存</span><br><span class="line">$ hexo g	# 生成页面</span><br><span class="line">$ hexo s	#运行本地服务</span><br></pre></td></tr></table></figure>
-
 <p>之后可以看到提示<code>hexo is running at http://localhost:4000/. Press ctrl+c to stop</code>，可见只需要在浏览器中输入<code>http://localhost:4000</code>即可看到页面，如果你不想运行了，直接Ctrl+c就可以了。</p>
 <h1 id="发布博客">发布博客</h1>
 <p>到现在为止，这些操作都还是在本地完成的，那么我们怎么才能把这些东西推送到github的个人页面上去呢？</p>
@@ -409,23 +417,20 @@
 <li>安装<code>hexo-deployer-git</code></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>配置网站git</li>
 </ul>
 <p>在站点配置文件(yourblogdir/_config.yml)修改如下配置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repo: &lt;your repository url&gt; #你的github上创建的yourname.github.io的仓库的地址</span><br><span class="line">	branch: [branch]	# 分支名称，可选的，默认时master分支</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>部署</li>
 </ul>
 <p>下面的命令可以实现一键部署，</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
 <p>这时候，浏览器中输入<code>https://yourname.github.io</code>是不是可以看到自己的博客了呢，大功告成。</p>
 <h1 id="参考">参考</h1>
 <p><a href="http://stevenshi.me/2017/05/23/ubuntu-hexo/" target="_blank" rel="noopener">ubuntu 下 hexo 安装与配置</a> <a href="https://jekyllrb.com/" target="_blank" rel="noopener">jekyll</a> <a href="https://hexo.io/zh-cn" target="_blank" rel="noopener">hexo</a> <a href="https://pandoc.org/" target="_blank" rel="noopener">pandoc</a></p>
-<p>更多更及时的博客更新请戳---&gt; <a href="http://zm913.xyz" title="KingRumn的Blog" target="_blank" rel="noopener">KingRumn</a></p>
+<p>更多更及时的博客更新请戳—&gt; <a href="http://zm913.xyz" title="KingRumn的Blog" target="_blank" rel="noopener">KingRumn</a></p>
 
       
     </div>
@@ -443,9 +448,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
-          
             <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
           
             <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
           
@@ -846,7 +851,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

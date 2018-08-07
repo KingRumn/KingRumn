@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="zh-cn">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="学习OpenCV的过程比较漫长，对一门技术的最好学习时在实践中积累与总结。 从今天起，开启一个每天一个OpenCV函数的系列，积累在学习过程中的思考。 功能函数 cvAbsDiff 123456/*modules/core/src/arithm.cpp*/void cvAbsDiff(     const CvArr* srcarr1,     const CvArr* srcarr2,">
+<meta name="description" content="学习OpenCV的过程比较漫长，对一门技术的最好学习时在实践中积累与总结。 从今天起，开启一个每天一个OpenCV函数的系列，积累在学习过程中的思考。 功能函数 ##cvAbsDiff 123456/*modules/core/src/arithm.cpp*/void cvAbsDiff(     const CvArr* srcarr1,     const CvArr* srcarr2,">
 <meta name="keywords" content="opencv,computer vision">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每天进步一点点（opencv）----cvAbs&#x2F;cvAbsDiff&#x2F;cvAbsDiffS">
 <meta property="og:url" content="http://kingrumn.github.io/2018/05/25/everyday-opencv/cv-src-opencv-1/index.html">
 <meta property="og:site_name" content="KingRumn">
-<meta property="og:description" content="学习OpenCV的过程比较漫长，对一门技术的最好学习时在实践中积累与总结。 从今天起，开启一个每天一个OpenCV函数的系列，积累在学习过程中的思考。 功能函数 cvAbsDiff 123456/*modules/core/src/arithm.cpp*/void cvAbsDiff(     const CvArr* srcarr1,     const CvArr* srcarr2,">
+<meta property="og:description" content="学习OpenCV的过程比较漫长，对一门技术的最好学习时在实践中积累与总结。 从今天起，开启一个每天一个OpenCV函数的系列，积累在学习过程中的思考。 功能函数 ##cvAbsDiff 123456/*modules/core/src/arithm.cpp*/void cvAbsDiff(     const CvArr* srcarr1,     const CvArr* srcarr2,">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2018-08-02T07:35:56.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每天进步一点点（opencv）----cvAbs&#x2F;cvAbsDiff&#x2F;cvAbsDiffS">
-<meta name="twitter:description" content="学习OpenCV的过程比较漫长，对一门技术的最好学习时在实践中积累与总结。 从今天起，开启一个每天一个OpenCV函数的系列，积累在学习过程中的思考。 功能函数 cvAbsDiff 123456/*modules/core/src/arithm.cpp*/void cvAbsDiff(     const CvArr* srcarr1,     const CvArr* srcarr2,">
+<meta name="twitter:description" content="学习OpenCV的过程比较漫长，对一门技术的最好学习时在实践中积累与总结。 从今天起，开启一个每天一个OpenCV函数的系列，积累在学习过程中的思考。 功能函数 ##cvAbsDiff 123456/*modules/core/src/arithm.cpp*/void cvAbsDiff(     const CvArr* srcarr1,     const CvArr* srcarr2,">
 
 
 
@@ -141,7 +141,7 @@
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -155,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,6 +227,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
           </a>
         </li>
       
@@ -360,9 +370,8 @@
         <p>学习OpenCV的过程比较漫长，对一门技术的最好学习时在实践中积累与总结。</p>
 <p>从今天起，开启一个每天一个OpenCV函数的系列，积累在学习过程中的思考。</p>
 <h1 id="功能函数">功能函数</h1>
-<h2 id="cvabsdiff">cvAbsDiff</h2>
+<p>##cvAbsDiff</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*modules/core/src/arithm.cpp*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cvAbsDiff</span><span class="params">( </span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">const</span> CvArr* srcarr1, </span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">const</span> CvArr* srcarr2, </span></span></span><br><span class="line"><span class="function"><span class="params">    CvArr* dstarr </span></span></span><br><span class="line"><span class="function"><span class="params">    )</span></span>;</span><br></pre></td></tr></table></figure>
-
 <p><strong>作用</strong>: 计算<code>srcarr1 - srcarr2</code>的绝对值，并写入dstarr。</p>
 <p><strong>说明</strong>:</p>
 <ul>
@@ -371,7 +380,6 @@
 </ul>
 <h2 id="cvabsdiffs">cvAbsDiffS</h2>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*modules/core/src/arithm.cpp*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cvAbsDiffS</span><span class="params">( </span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">const</span> CvArr* srcarr1, </span></span></span><br><span class="line"><span class="function"><span class="params">    CvArr* dstarr, </span></span></span><br><span class="line"><span class="function"><span class="params">    CvScalar scalar</span></span></span><br><span class="line"><span class="function"><span class="params">    )</span></span>;</span><br></pre></td></tr></table></figure>
-
 <p><strong>作用</strong>: 从<code>src</code>中减掉标量值。</p>
 <p><strong>说明</strong>:</p>
 <ul>
@@ -380,7 +388,6 @@
 </ul>
 <h2 id="cvabs">cvAbs</h2>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*module/coure/include/opencv2/core/core_c.h*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cvAbs( src, dst ) cvAbsDiffS( (src), (dst), cvScalarAll(0))</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>作用</strong>: 计算<code>src</code> 的绝对值，并写入<code>dst</code>。</p>
 <p><strong>说明</strong>:</p>
 <ul>
@@ -389,17 +396,16 @@
 <h1 id="通用函数">通用函数</h1>
 <h2 id="cv_assert">CV_Assert</h2>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CV_Assert(cond) do &#123; <span class="meta-keyword">if</span> (!(cond)) abort(); &#125; while (0)</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>作用</strong>: 断言<code>cond</code>的值</p>
 <p><strong>说明</strong>:</p>
 <ul>
 <li>如果cond为假，直接退出；</li>
 </ul>
 <h2 id="cvcvarrtomat">cv::cvarrToMat</h2>
-<p>--ToDo</p>
-<h2 id="cvabsdiff-1">cv::absdiff</h2>
-<p>--ToDo</p>
-<p>更多更及时的博客更新请戳---&gt; <a href="http://zm913.xyz" title="KingRumn的Blog" target="_blank" rel="noopener">KingRumn</a></p>
+<p>–ToDo</p>
+<h2 id="cvabsdiff">cv::absdiff</h2>
+<p>–ToDo</p>
+<p>更多更及时的博客更新请戳—&gt; <a href="http://zm913.xyz" title="KingRumn的Blog" target="_blank" rel="noopener">KingRumn</a></p>
 
       
     </div>
@@ -576,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#功能函数"><span class="nav-number">1.</span> <span class="nav-text">功能函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cvabsdiff"><span class="nav-number">1.1.</span> <span class="nav-text">cvAbsDiff</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cvabsdiffs"><span class="nav-number">1.2.</span> <span class="nav-text">cvAbsDiffS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cvabs"><span class="nav-number">1.3.</span> <span class="nav-text">cvAbs</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通用函数"><span class="nav-number">2.</span> <span class="nav-text">通用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cv_assert"><span class="nav-number">2.1.</span> <span class="nav-text">CV_Assert</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cvcvarrtomat"><span class="nav-number">2.2.</span> <span class="nav-text">cv::cvarrToMat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cvabsdiff-1"><span class="nav-number">2.3.</span> <span class="nav-text">cv::absdiff</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#功能函数"><span class="nav-number">1.</span> <span class="nav-text">功能函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cvabsdiffs"><span class="nav-number">1.1.</span> <span class="nav-text">cvAbsDiffS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cvabs"><span class="nav-number">1.2.</span> <span class="nav-text">cvAbs</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通用函数"><span class="nav-number">2.</span> <span class="nav-text">通用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cv_assert"><span class="nav-number">2.1.</span> <span class="nav-text">CV_Assert</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cvcvarrtomat"><span class="nav-number">2.2.</span> <span class="nav-text">cv::cvarrToMat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cvabsdiff"><span class="nav-number">2.3.</span> <span class="nav-text">cv::absdiff</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -822,7 +828,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="zh-cn">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo,linux,ubuntu," />
+  <meta name="keywords" content="linux,hexo,ubuntu," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="基本介绍 Hexo是一个快速/简洁/高效的博客框架，使用Markdown作为渲染引擎解析文章，结合丰富的主题，分分钟生成绚丽的静态网页，是博客写作的首选。 12345678910111213141516171819202122232425.├── _config.yml		# 站点配置文件├── node_modules	# 中间产物├── package.json	# 应用程序信息，包括mark">
-<meta name="keywords" content="hexo,linux,ubuntu">
+<meta name="keywords" content="linux,hexo,ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo 简介">
 <meta property="og:url" content="http://kingrumn.github.io/2018/04/28/linux-hexo-cmd-1/index.html">
@@ -141,7 +141,7 @@
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -155,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,6 +227,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
           </a>
         </li>
       
@@ -360,125 +370,112 @@
         <h1 id="基本介绍">基本介绍</h1>
 <p>Hexo是一个快速/简洁/高效的博客框架，使用Markdown作为渲染引擎解析文章，结合丰富的主题，分分钟生成绚丽的静态网页，是博客写作的首选。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml		# 站点配置文件</span><br><span class="line">├── node_modules	# 中间产物</span><br><span class="line">├── package.json	# 应用程序信息，包括markdown渲染器等</span><br><span class="line">├── public			# hexo生成的页面信息</span><br><span class="line">│   ├── 2018</span><br><span class="line">│   ├── archives</span><br><span class="line">│   ├── categories</span><br><span class="line">│   ├── css</span><br><span class="line">│   ├── images</span><br><span class="line">│   ├── index.html</span><br><span class="line">│   ├── js</span><br><span class="line">│   └── lib</span><br><span class="line">├── README.md		# 介绍文件</span><br><span class="line">├── scaffolds		# 模板文件，新建文章时，Hexo会据此来建立新的文件</span><br><span class="line">│   ├── draft.md	# 草稿</span><br><span class="line">│   ├── page.md		# </span><br><span class="line">│   └── post.md		# 文章</span><br><span class="line">├── source</span><br><span class="line">│   ├── categories	# 资源文件，除_post外，开头命名为_的文件/文件夹和隐藏文件在生成过程中会被忽略</span><br><span class="line">│   ├── _drafts		# 草稿</span><br><span class="line">│   └── _posts</span><br><span class="line">└── themes			# 主题文件夹</span><br><span class="line">    ├── hexo-theme-next	# next主题</span><br><span class="line">    └── landscape		# 默认主题</span><br></pre></td></tr></table></figure>
-
 <h1 id="基本命令">基本命令</h1>
 <h2 id="init">init</h2>
 <p>新建一个网站，如果folder可选，在当前目录中建立网站。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
-
 <h2 id="new">new</h2>
 <p>新建一篇文章，layout可选，默认使用default_layout替代参数，如果标题包含空格，需要用引号括起来。</p>
 <p>会在source下对应的文件夹生成相应的文件。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-
 <h2 id="generate">generate</h2>
 <p>生成静态页面。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate		# 简写为 hexo g</span><br></pre></td></tr></table></figure>
-
 <table>
 <thead>
 <tr class="header">
-<th align="left">选项</th>
-<th align="left">描述</th>
+<th>选项</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">-d, --deploy</td>
-<td align="left">文件生成后立即部署</td>
+<td>-d, –deploy</td>
+<td>文件生成后立即部署</td>
 </tr>
 <tr class="even">
-<td align="left">-w, --watch</td>
-<td align="left">监视文件变化</td>
+<td>-w, –watch</td>
+<td>监视文件变化</td>
 </tr>
 </tbody>
 </table>
 <h2 id="public">public</h2>
 <p>发表草稿。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo public [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-
 <h2 id="server">server</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server		# 简写为 hexo s</span><br></pre></td></tr></table></figure>
-
 <p>启动服务器，默认情况下，网址为：<code>http://localhost:4000</code></p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">选项</th>
-<th align="left">描述</th>
+<th>选项</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">-p, --port</td>
-<td align="left">重设端口</td>
+<td>-p, –port</td>
+<td>重设端口</td>
 </tr>
 <tr class="even">
-<td align="left">-s, --static</td>
-<td align="left">只使用静态文件</td>
+<td>-s, –static</td>
+<td>只使用静态文件</td>
 </tr>
 <tr class="odd">
-<td align="left">-l, --log</td>
-<td align="left">启动日志记录，使用覆盖格式</td>
+<td>-l, –log</td>
+<td>启动日志记录，使用覆盖格式</td>
 </tr>
 </tbody>
 </table>
 <h2 id="deploy">deploy</h2>
 <p>部署网站</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy		# 简写为 hexo d</span><br></pre></td></tr></table></figure>
-
 <table>
 <thead>
 <tr class="header">
-<th align="left">选项</th>
-<th align="left">描述</th>
+<th>选项</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">-g, --generate</td>
-<td align="left">部署之前预先生成静态文件</td>
+<td>-g, –generate</td>
+<td>部署之前预先生成静态文件</td>
 </tr>
 </tbody>
 </table>
 <h2 id="render">render</h2>
 <p>渲染文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo render &lt;file1&gt; [file2]</span><br></pre></td></tr></table></figure>
-
 <table>
 <thead>
 <tr class="header">
-<th align="left">选项</th>
-<th align="left">描述</th>
+<th>选项</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">-o, --output</td>
-<td align="left">设置输出路径</td>
+<td>-o, –output</td>
+<td>设置输出路径</td>
 </tr>
 </tbody>
 </table>
 <h2 id="migrage">migrage</h2>
 <p>从其他博客系统迁移内容</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo migrate &lt;type&gt;</span><br></pre></td></tr></table></figure>
-
 <h2 id="clean">clean</h2>
 <p>清除缓存文件(db.json)和已生成的静态文件(public)，更换主题后，这是必须的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
-
 <h2 id="list">list</h2>
 <p>列出网站资料</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo list</span><br></pre></td></tr></table></figure>
-
 <h2 id="version">version</h2>
 <p>显示hexo版本</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo version</span><br></pre></td></tr></table></figure>
-
 <h2 id="选项">选项</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --safe		#安全模式，不载入插件和脚本，可用于插件安装遭遇问题时</span><br><span class="line">$ hexo --debug		#调试模式，在终端显示调试信息，并记录到debug.log</span><br><span class="line">$ hexo --silent		# 简洁模式，隐藏终端信息</span><br><span class="line">$ hexo --config custom.yml		# 自定义配置文件路径</span><br><span class="line">$ hexo --draft			# 显示source/_draft文件夹下的草稿文件</span><br><span class="line">$ hexo --cwd /path/to/cwd	#自定义当前工作目录的路径</span><br></pre></td></tr></table></figure>
-
-<p>更多更及时的博客更新请戳---&gt; <a href="http://zm913.xyz" title="KingRumn的Blog" target="_blank" rel="noopener">KingRumn</a></p>
+<p>更多更及时的博客更新请戳—&gt; <a href="http://zm913.xyz" title="KingRumn的Blog" target="_blank" rel="noopener">KingRumn</a></p>
 
       
     </div>
@@ -496,9 +493,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
-          
             <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
           
             <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
           
@@ -903,7 +900,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
